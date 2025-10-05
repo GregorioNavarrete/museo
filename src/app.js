@@ -6,7 +6,7 @@ const cors = require('cors');
 const indexRouter = require('./routes/index.routes');
 
 const app = express();
-const puerto = 3000;
+const puerto = 3001;
 
 app.listen(puerto, () => {
   console.log(`Servidor levantado en puerto ${puerto}`);
