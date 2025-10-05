@@ -1,0 +1,91 @@
+
+ /*SOLAMENTE ESTAN CAMBIADOS LOS VALORES 
+ PARA QUE SE SIGAN RECONOCIENDO LAS VARIABLES*/
+ 
+
+
+ /*COLORES AZUL*/
+:root {
+    
+    --COLOR-FONDO-NEGRO: #000000;
+    --COLOR-FONDO-BLANCO-TRASP: #ffffffb7;
+    --COLOR-FONDO-ROJO-GRADIENTE: #0081dbe0;
+
+    --COLOR-ROJO: #0081db;
+    --COLOR-ROJO-CLARO: #c7eaff;
+    --COLOR-ROJO-OSC: #005a96;
+
+    --COLOR-TEXTO-BLANCO: #ffffff;
+    --COLOR-TEXTO-NEGRO: #000000;
+
+    --COLOR-BORDE-BOTON: #ffffff;
+    --COLOR-BOTON-FONDO: linear-gradient(to bottom, #ffffff, #0057aa);
+
+    --COLOR-GRADIENTE-CARTA: linear-gradient(to bottom, #e4f4ff, var(--COLOR-ROJO-OSC));
+}
+
+
+/*COLORES ROSA*/
+/*
+:root {
+    --COLOR-FONDO-NEGRO: #000000;
+    --COLOR-FONDO-BLANCO-TRASP: #ffffffb7;
+    --COLOR-FONDO-ROJO-GRADIENTE: #e0008de0;
+
+    --COLOR-ROJO: #e0008d;
+    --COLOR-ROJO-CLARO: #ffc7eb;
+    --COLOR-ROJO-OSC: #9e0062;
+
+    --COLOR-TEXTO-BLANCO: #ffffff;
+    --COLOR-TEXTO-NEGRO: #000000;
+
+    --COLOR-BORDE-BOTON: #ffffff;
+    --COLOR-BOTON-FONDO: linear-gradient(to bottom, #ffffff, #b30071);
+
+    --COLOR-GRADIENTE-CARTA: linear-gradient(to bottom, #ffe4f5, var(--COLOR-ROJO-OSC));
+}
+*/
+
+/*COLORES VERDE*/
+/*
+:root {
+    --COLOR-FONDO-NEGRO: #000000;
+    --COLOR-FONDO-BLANCO-TRASP: #ffffffb7;
+    --COLOR-FONDO-ROJO-GRADIENTE: #008103e0;
+
+    --COLOR-ROJO: #008103;
+    --COLOR-ROJO-CLARO: #c7ffcc;
+    --COLOR-ROJO-OSC: #005a02;
+
+    --COLOR-TEXTO-BLANCO: #ffffff;
+    --COLOR-TEXTO-NEGRO: #000000;
+
+    --COLOR-BORDE-BOTON: #ffffff;
+    --COLOR-BOTON-FONDO: linear-gradient(to bottom, #ffffff, #005702);
+
+    --COLOR-GRADIENTE-CARTA: linear-gradient(to bottom, #e4ffe5, var(--COLOR-ROJO-OSC));
+}
+*/
+
+/*COLORES ROJO*/
+
+/*
+:root {
+    --COLOR-FONDO-NEGRO: #000000;
+    --COLOR-FONDO-BLANCO-TRASP: #ffffffb7;
+    --COLOR-FONDO-ROJO-GRADIENTE: #d81919e0;
+
+    --COLOR-ROJO: #d81919;
+    --COLOR-ROJO-CLARO: #ffdfdf;
+    --COLOR-ROJO-OSC: #b30000;
+
+    --COLOR-TEXTO-BLANCO: #ffffff;
+    --COLOR-TEXTO-NEGRO: #000000;
+
+    --COLOR-BORDE-BOTON: #ffffff;
+    --COLOR-BOTON-FONDO: linear-gradient(to bottom, #ffffff, #d40400);
+
+    --COLOR-GRADIENTE-CARTA: linear-gradient(to bottom, #ffe4e4, var(--COLOR-ROJO-OSC));
+}
+
+*/

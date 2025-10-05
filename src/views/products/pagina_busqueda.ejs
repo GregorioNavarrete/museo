@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- CSS principal -->
+<link rel="stylesheet" href="/css/pagina_busqueda.css">
+
+<!-- Estilos de cartas y grid -->
+<link rel="stylesheet" href="/css/carta.css">
+<link rel="stylesheet" href="/css/grid_motos.css">
+
+<!-- Fuente -->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
+<title>Museo del Ciclomotor</title>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar" id="navbar">
+    <img src="/img/logotipo Museo Ciclomotor celeste.png" alt="Museo del Ciclomotor">
+</div>
+
+<!-- Contenido -->
+<div class="container">
+    <h1>¡Bienvenido!</h1>
+    <h2>¡Buscá en nuestro tótem tu modelo preferido!</h2>
+    
+    <!-- Buscador -->
+    <div class="search-box">
+        <form class="barra-busqueda-header" action="/product/search" method="GET">
+            <input class="input-header" type="text" placeholder="¡Buscá tu modelo favorito!" name="search">
+
+            <select name="campo" class="select-header">
+                <option value="modelo">Modelo</option>
+                <option value="origen">Origen</option>
+                <option value="marca">Marca</option>
+                <option value="rodado">Rodado</option>
+            </select>
+            <div class="button-header">
+                <button class="button-search" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i> ¡Iniciá la Busqueda!
+                </button>
+            </div>
+        </form>
+      
+    </div>
+    
+    
+    <br>
+    <h3>¡Acá tenés modelos que podrían gustarte!</h3>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!-- Lista de modelos -->
+    <div class="models">
+        <% if(typeof product !== 'undefined' && product.length > 0) { %>
+            <%- include('../partials/grid_motos.ejs') %>
+        <% } else { %>
+            <h1>Aún no hay modelos cargados.</h1>
+            
+        <% } %>
+    </div>
+</div>
+
+</body>
+</html>

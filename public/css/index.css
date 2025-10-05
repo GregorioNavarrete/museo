@@ -1,0 +1,106 @@
+@import url('paleta_colores.css');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--COLOR-FONDO-NEGRO);
+}
+
+* {
+    font-family: Nunito, sans-serif;
+}
+
+
+.pantalla-click {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+/* Animación para fondo */
+@keyframes fadeInFondo {
+    0% {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animación para elementos nítidos */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(1.05);
+        filter: brightness(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+.contenedor-pantalla {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.fondo {
+    filter: blur(7px);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: fadeInFondo 1.5s ease forwards;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.overlay-negro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.336);
+    z-index: 5;
+    animation: fadeInFondo 1.5s ease forwards;
+}
+
+.superpuesta {
+    top: 300px;
+    width: 110%;
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 1.5s;
+}
+
+/* Texto animado */
+.texto-animado {
+    color: white;
+    font-size: 100px;
+    font-family: Nunito, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    bottom: 30%;
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 3s;
+}

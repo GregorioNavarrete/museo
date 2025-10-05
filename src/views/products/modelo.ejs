@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= moto.modelo %> - Ficha Técnica</title>
+    <link rel="stylesheet" href="../css/modelo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="ficha-museo">
+        <div class="botones">
+            <a href="javascript:history.back()" class="boton-atras">Atrás</a>
+            <a href="/pagina_historia" class="boton-catalogo">¡Descubrí la historia del Museo!</a>
+        </div>
+
+        <img src="../../img/zanellat.jpg" alt="<%= moto.modelo %>">
+        <h1><%= moto.modelo %></h1>
+
+        <div class="detalles">
+            <ul>
+                <li><strong>Marca:</strong> <%= moto.marca %></li>
+                <li><strong>Origen:</strong> <%= moto.origen %></li>
+                <li><strong>Rodado:</strong> <%= moto.rodado %></li>
+                <li><strong>HP:</strong> <%= moto.hp %></li>
+                <li><strong>Motor:</strong> <%= moto.motor %></li>
+                <li><strong>Descripción:</strong> <%= moto.descripcion_corta %></li>
+                <li><strong>ID Artículo:</strong> <%= moto.id_articulo %></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

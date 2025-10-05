@@ -1,0 +1,36 @@
+@import url('paleta_colores.css');
+
+body {
+  font-family: "Nunito", sans-serif;
+  animation: fadeIn 1s ease forwards;
+}
+
+.models {
+  text-decoration: none; 
+  color: inherit;        
+  animation: fadeIn 1s ease forwards;
+}
+
+.grid-superior {
+  display: grid;
+  grid-template-columns: repeat(3, 3fr); 
+  gap: 20px; 
+  justify-items: center;
+  animation: fadeIn 1s ease forwards;
+}
+
+.card {
+  width: 614px !important;
+  height: 780px !important;
+  border: none !important;
+  overflow: hidden !important;
+  animation: fadeIn 1s ease forwards;
+}
+
+.card img {
+  object-fit: cover;
+  margin-top: 15px;
+  width: 540px;
+  height: 540px;
+  animation: fadeIn 1s ease forwards;
+}

@@ -1,0 +1,157 @@
+@import url('paleta_colores.css');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--COLOR-FONDO-NEGRO);
+}
+
+* {
+    font-family: Nunito, sans-serif;
+}
+
+.pantalla-click {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+/* ===================== ANIMACIONES ===================== */
+
+/* Fondo */
+@keyframes fadeInFondo {
+    0% { opacity: 0; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Logo: Zoom + Rebote */
+@keyframes zoomBounce {
+    0% { opacity: 0; transform: scale(0.3); }
+    60% { opacity: 1; transform: scale(1.1); }
+    80% { transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Título: Bounce desde arriba */
+@keyframes bounceDown {
+    0% { opacity: 0; transform: translateY(-150px); }
+    60% { opacity: 1; transform: translateY(20px); }
+    80% { transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Texto 2: Bounce desde abajo */
+@keyframes bounceUp {
+    0% { opacity: 0; transform: translateY(150px); }
+    60% { opacity: 1; transform: translateY(-20px); }
+    80% { transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Texto principal: Pop-up elástico */
+@keyframes popElastic {
+    0% { opacity: 0; transform: scale(0.5); }
+    60% { opacity: 1; transform: scale(1.2); }
+    80% { transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* ===================== ELEMENTOS ===================== */
+
+.contenedor-pantalla {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.fondo {
+    filter: blur(7px);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: fadeInFondo 1.5s ease forwards;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.overlay-negro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.644);
+    z-index: 5;
+    animation: fadeInFondo 1.5s ease forwards;
+}
+
+.superpuesta {
+    top: 10px;
+    width: 50%;
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    animation: zoomBounce 1.5s ease forwards;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+.titulo {
+    color: white;
+    font-size: 150px;
+    font-family: Nunito, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    top: 21%;
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    animation: bounceDown 1.5s ease forwards;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+}
+
+.texto-animado2 {
+    color: white;
+    font-size: 80px;
+    font-family: Nunito, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    top: 30%;
+    left: 10%;
+    right: 10%;
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    animation: bounceUp 1.5s ease forwards;
+    animation-delay: 4.5s;
+    animation-fill-mode: forwards;
+}
+
+.texto-animado {
+    background: var(--COLOR-BOTON-FONDO); 
+    color: var(--COLOR-TEXTO-BLANCO);
+    padding: 60px;
+    border-radius: 90px;
+    font-size: 100px;
+    font-family: Nunito, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    bottom: 15%;
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    animation: popElastic 1.5s ease forwards;
+    animation-delay: 6s;
+    animation-fill-mode: forwards;
+}

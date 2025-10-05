@@ -1,0 +1,68 @@
+-- ===============================
+-- INSERTAR MOTO
+-- ===============================
+INSERT INTO Articulos (id_tipo, titulo, descripcion)
+VALUES ((SELECT id_tipo FROM TiposArticulo WHERE nombre='Moto'),
+        'Yamaha MT-07', 'Moto naked de 689cc');
+
+SET @id_moto = LAST_INSERT_ID();
+
+INSERT INTO Motos (id_articulo, modelo, marca, origen, rodado, hp, motor, descripcion_corta)
+VALUES (@id_moto, 'MT-07', 'Yamaha', 'Japón', '17', 74, 'bicilíndrico', 'Moto versátil y ligera');
+
+INSERT INTO Medios (id_articulo, tipo, url, titulo, orden)
+VALUES 
+(@id_moto, 'foto', 'https://cdn.ejemplo.com/fotos/mt07_1.jpg', 'Vista lateral', 1),
+(@id_moto, 'foto', 'https://cdn.ejemplo.com/fotos/mt07_2.jpg', 'Vista trasera', 2),
+(@id_moto, 'video', 'https://cdn.ejemplo.com/videos/mt07_test.mp4', 'Prueba en carretera', 3);
+
+-- ===============================
+-- INSERTAR MÁQUINA DE COSER
+-- ===============================
+INSERT INTO Articulos (id_tipo, titulo, descripcion)
+VALUES ((SELECT id_tipo FROM TiposArticulo WHERE nombre='Maquina de Coser'),
+        'Singer Heavy Duty 4423', 'Máquina de coser robusta para uso doméstico');
+
+SET @id_maquina = LAST_INSERT_ID();
+
+INSERT INTO MaquinasCoser (id_articulo, modelo, origen, campo_extra1, campo_extra2, campo_extra3)
+VALUES (@id_maquina, '4423', 'EEUU', '23 puntadas', 'Motor de alta potencia', 'Brazo libre');
+
+INSERT INTO Medios (id_articulo, tipo, url, titulo, orden)
+VALUES 
+(@id_maquina, 'foto', 'https://cdn.ejemplo.com/fotos/singer4423.jpg', 'Foto principal', 1),
+(@id_maquina, 'video', 'https://cdn.ejemplo.com/videos/singer4423.mp4', 'Demostración en tela', 2);
+
+-- ===============================
+-- INSERTAR OTRO ARTÍCULO (ej: Taladro)
+-- ===============================
+INSERT INTO Articulos (id_tipo, titulo, descripcion)
+VALUES ((SELECT id_tipo FROM TiposArticulo WHERE nombre='Otro'),
+        'Taladro Bosch X200', 'Taladro eléctrico profesional');
+
+SET @id_otro = LAST_INSERT_ID();
+
+INSERT INTO OtrosArticulos (id_articulo, campo_extra1, campo_extra2, campo_extra3)
+VALUES (@id_otro, 'Velocidad variable', 'Mandril automático', 'Garantía 2 años');
+
+INSERT INTO Medios (id_articulo, tipo, url, titulo, orden)
+VALUES 
+(@id_otro, 'foto', 'https://cdn.ejemplo.com/fotos/taladro_x200.jpg', 'Vista frontal', 1),
+(@id_otro, 'video', 'https://cdn.ejemplo.com/videos/taladro_demo.mp4', 'Prueba en madera', 2);
+
+
+#Ver todas las motos
+#SELECT a.id_articulo, a.titulo, m.modelo, m.marca, m.origen, m.hp, m.motor, a.descripcion FROM Articulos a JOIN Motos m ON a.id_articulo = m.id_articulo;
+
+#Ver todas las máquinas de coser
+#SELECT a.id_articulo, a.titulo, mc.modelo, mc.origen, a.descripcion FROM Articulos a JOIN MaquinasCoser mc ON a.id_articulo = mc.id_articulo;
+#
+#Ver todos los otros artículos
+#SELECT a.id_articulo, a.titulo, a.descripcion, o.campo_extra1, o.campo_extra2 FROM Articulos a JOIN OtrosArticulos o ON a.id_articulo = o.id_articulo;
+#
+#Ver todos los artículos con sus fotos y videos
+#SELECT * FROM vw_articulos_medios ORDER BY id_articulo, tipo_medio, orden;
+#
+#Ver conteo de fotos y videos por artículo
+#SELECT * FROM vw_count_medios;
+

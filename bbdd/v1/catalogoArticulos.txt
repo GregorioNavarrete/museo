@@ -1,0 +1,137 @@
+-- ========================================================
+-- CREACIÓN DE BASE DE DATOS
+-- ========================================================
+DROP DATABASE IF EXISTS CatalogoArticulos;
+CREATE DATABASE CatalogoArticulos;
+USE CatalogoArticulos;
+
+-- ========================================================
+-- TABLAS PRINCIPALES
+-- ========================================================
+
+-- Tipos de artículo
+CREATE TABLE TiposArticulo (
+  id_tipo INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(50) NOT NULL UNIQUE
+);
+
+-- los 3 tripos que estan por ahora
+INSERT INTO TiposArticulo (nombre) VALUES ('Moto'), ('Maquina de Coser'), ('Otro');
+
+-- Tabla de artículos (base) -- similar a PRODUCT
+CREATE TABLE Articulos (
+  id_articulo INT AUTO_INCREMENT PRIMARY KEY,
+  id_tipo INT NOT NULL,
+  titulo VARCHAR(255) NOT NULL,
+  descripcion TEXT,
+  creado DATETIME, -- despues hacer funcionar
+  FOREIGN KEY (id_tipo) REFERENCES TiposArticulo(id_tipo) ON DELETE CASCADE
+);
+
+-- ========================================================
+-- TABLAS ESPECÍFICAS DE ARTÍCULOS
+-- ========================================================
+
+-- Motos
+CREATE TABLE Motos (
+  id_articulo INT PRIMARY KEY,
+  modelo VARCHAR(100),
+  marca VARCHAR(100),
+  origen VARCHAR(100),
+  rodado VARCHAR(50),
+  hp VARCHAR(50),
+  motor VARCHAR(100),
+  descripcion_corta VARCHAR(255),
+  campo_extra1 VARCHAR(255),
+  campo_extra2 VARCHAR(255),
+  campo_extra3 VARCHAR(255),
+  campo_extra4 VARCHAR(255),
+  campo_extra5 VARCHAR(255),
+  FOREIGN KEY (id_articulo) REFERENCES Articulos(id_articulo) ON DELETE CASCADE
+);
+
+-- Máquinas de coser
+CREATE TABLE MaquinasCoser (
+  id_articulo INT PRIMARY KEY,
+  modelo VARCHAR(100),
+  origen VARCHAR(100),
+  campo_extra1 VARCHAR(255),
+  campo_extra2 VARCHAR(255),
+  campo_extra3 VARCHAR(255),
+  campo_extra4 VARCHAR(255),
+  campo_extra5 VARCHAR(255),
+  campo_extra6 VARCHAR(255),
+  campo_extra7 VARCHAR(255),
+  campo_extra8 VARCHAR(255),
+  campo_extra9 VARCHAR(255),
+  campo_extra10 VARCHAR(255),
+  FOREIGN KEY (id_articulo) REFERENCES Articulos(id_articulo) ON DELETE CASCADE
+);
+
+-- Otros artículos
+CREATE TABLE OtrosArticulos (
+  id_articulo INT PRIMARY KEY,
+  campo_extra1 VARCHAR(255),
+  campo_extra2 VARCHAR(255),
+  campo_extra3 VARCHAR(255),
+  campo_extra4 VARCHAR(255),
+  campo_extra5 VARCHAR(255),
+  campo_extra6 VARCHAR(255),
+  campo_extra7 VARCHAR(255),
+  campo_extra8 VARCHAR(255),
+  campo_extra9 VARCHAR(255),
+  campo_extra10 VARCHAR(255),
+  campo_extra11 VARCHAR(255),
+  campo_extra12 VARCHAR(255),
+  campo_extra13 VARCHAR(255),
+  campo_extra14 VARCHAR(255),
+  campo_extra15 VARCHAR(255),
+  campo_extra16 VARCHAR(255),
+  campo_extra17 VARCHAR(255),
+  campo_extra18 VARCHAR(255),
+  campo_extra19 VARCHAR(255),
+  campo_extra20 VARCHAR(255),
+  FOREIGN KEY (id_articulo) REFERENCES Articulos(id_articulo) ON DELETE CASCADE
+);
+
+-- ========================================================
+-- MEDIOS (FOTOS Y VIDEOS)
+-- ========================================================
+CREATE TABLE Medios (
+  id_medio INT AUTO_INCREMENT PRIMARY KEY,
+  id_articulo INT NOT NULL,
+  tipo VARCHAR(50) NOT NULL,
+  url VARCHAR(1000) NOT NULL,
+  titulo VARCHAR(250) NULL,
+  descripcion TEXT NULL,
+  duracion_segundos INT NULL,   -- solo para video
+  orden INT NOT NULL DEFAULT 1,
+  creado DATETIME, -- despues hacer funcionar
+  FOREIGN KEY (id_articulo) REFERENCES Articulos(id_articulo) ON DELETE CASCADE
+);
+
+
+
+
+
+-- ========================================================
+-- EJEMPLOS DE INSERCIÓN
+-- ========================================================
+
+-- Insertar una moto (moto:1,maqCoser:2,otrs:3)
+INSERT INTO Articulos (id_tipo, titulo, descripcion)
+VALUES( 1, 'Honda CB500F', 'Moto naked 500cc');
+SET @id_moto = LAST_INSERT_ID();#Guarda ese número en la variable @id_moto porque lo voy a usar después
+select * from Articulos;
+#SELECT a.id_articulo, a.titulo, m.modelo, m.marca, m.origen, m.hp, m.motor, a.descripcion FROM Articulos a JOIN Motos m ON a.id_articulo = m.id_articulo;
+
+INSERT INTO Motos (id_articulo, modelo, marca, origen, rodado, hp, motor, descripcion_corta)
+VALUES (@id_moto, 'CB500F', 'Honda', 'Japón', '17', 47, 'bicilíndrico', 'Moto urbana deportiva');
+#select * from Motos;
+-- Foto asociada
+INSERT INTO Medios (id_articulo, tipo, url, titulo, orden)
+VALUES (@id_moto, 'foto', 'https://cdn.ejemplo.com/fotos/cb500f.jpg', 'Foto frontal', 1);
+
+-- Video asociado
+INSERT INTO Medios (id_articulo, tipo, url, titulo, duracion_segundos, orden)
+VALUES (@id_moto, 'video', 'https://cdn.ejemplo.com/videos/cb500f_test.mp4', 'Test ride', 120, 2);
