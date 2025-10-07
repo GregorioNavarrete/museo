@@ -7,7 +7,8 @@ const indexRouter = require('./routes/index.routes');
 const indexRouterJson = require('./routes/indexjson.routes');
 
 const app = express();
-const puerto = 3001;
+// const puerto = 3001;//render
+const puerto = 8888 ;//netlifly
 
 app.listen(puerto, () => {
   console.log(`Servidor levantado en puerto ${puerto}`);
