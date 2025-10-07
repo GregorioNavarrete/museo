@@ -6,7 +6,7 @@
         <a href="/modelo/<%= product[i].idUnico %>">
             <div class="card">
                 <!-- Imagen -->
-                <img src="/img/zanellat.jpg" 
+                <img src="/img/motos/<%= product[i].img%>" 
                      alt="<%= product[i].nombre %>" 
                      class="card-img">
                 
@@ -14,7 +14,6 @@
                 <div class="card-text">
                     <h3><%= product[i].nombre %></h3>
                     <p>Codigo=<%= product[i].codigo %></p>
-                    <p>Origen=<%= product[i].origen %></p>
                     <p>observaciones<%= product[i].observaciones %></p>
                 </div>
             </div>

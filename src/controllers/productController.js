@@ -25,8 +25,12 @@ const productController = {
   },
   indexJson: async (req, res) => {
     try {
-      let motos = await productServiceJson.findAll(); // Trae todos los productos
-      res.render('products/pagina_busqueda', { product: motos });
+      //let motos = await productServiceJson.findAll(); // Trae todos los productos
+        let motos = await productServiceJson.findAll() || [];
+        let codigos = await productServiceJson.findAllCodigos();
+        console.log(codigos[0]);console.log(codigos[1]);
+        let motos6 = Array.isArray(motos) ? motos.slice(0, 6) : [];
+      res.render('products/pagina_busqueda', { product: motos6 });
     } catch (error) {
       console.error(error);
       res.status(500).send("Error al cargar los productos");
@@ -69,15 +73,19 @@ const termino = terminoRaw.toLowerCase();
       // });
 // filtro seguro y simple
 let busqueda = allProducts.filter(p => {
-  // if (!p || p.activo === false) return false;    // evitar objetos inválidos / inactivos
+  if (!p) return false;
 
-  const val = p[campo];                           // acceso dinámico correcto
+  // Si querés filtrar solo activos (activo puede ser booleano o string "true")
+  if (p.activo === false || String(p.activo).toLowerCase() !== "true") return false;
+
+  const val = p[campo];
   if (val === undefined || val === null) return false;
 
-  const sval = String(val).trim();                // forzar a string y quitar espacios
-  if (sval === '' || /^null$/i.test(sval)) return false; // ignorar cadena vacía o "null"
+  const sval = String(val).trim();
+  if (sval === "" || /^null$/i.test(sval)) return false;
 
-  return sval.toLowerCase().includes(termino);   // ahora es seguro llamar toLowerCase()
+  // comparación exacta (string)
+  return sval === String(termino).trim();
 });
       console.log(busqueda);
 
