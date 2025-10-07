@@ -35,7 +35,7 @@ findAllCodigos: async function () {
       if (c === "" || /^null$/i.test(c)) continue; // saltear vacíos/"null"
       codigos.push(c); // agrega tal cual (string). Mantiene duplicados si existen.
     }
-
+    
     return codigos; // array de strings
   } catch (e) {
     console.error("findAllCodigos error:", e);

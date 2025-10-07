@@ -39,6 +39,12 @@
                 <option value="marca">Marca</option>
                 <option value="rodado">Rodado</option>
             </select> -->
+  <select id="111" name="valorDispo" class="codigo-select" aria-label="Seleccionar código">
+
+     <% for(let i = 0; i < cod.length; i++) { %>
+        <option value="<%= cod[i]%>">-- <%= cod[i] %> --</option>
+    <% } %>
+  </select>
             <div class="button-header">
                 <button class="button-search" type="submit">
                     <i class="fa-solid fa-magnifying-glass"></i> ¡Iniciá la Busqueda!

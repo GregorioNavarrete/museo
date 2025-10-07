@@ -28,9 +28,9 @@ const productController = {
       //let motos = await productServiceJson.findAll(); // Trae todos los productos
         let motos = await productServiceJson.findAll() || [];
         let codigos = await productServiceJson.findAllCodigos();
-        console.log(codigos[0]);console.log(codigos[1]);
+        //console.log(codigos);
         let motos6 = Array.isArray(motos) ? motos.slice(0, 6) : [];
-      res.render('products/pagina_busqueda', { product: motos6 });
+      res.render('products/pagina_busqueda', { product: motos6, cod: codigos });
     } catch (error) {
       console.error(error);
       res.status(500).send("Error al cargar los productos");
@@ -56,40 +56,44 @@ const productController = {
    // Búsqueda filtrada por codigo
   productSearchJson: async (req, res) => {
     try {
-      // const termino = req.query.search ? req.query.search.toLowerCase() : '';
-      const campo = req.query.campo || 'codigo'; // Por defecto filtra por codigo
-
-// normalizar término (asegurarse que es string)
+// normalizar entrada
+const campoRaw = req.query.campo;
+const campo = campoRaw ? String(campoRaw).trim() : '';        // '' significa "buscar por valor"
+const valor = String(req.query.valorDispo || '').trim();      // valor para búsqueda por código
 const terminoRaw = req.query.search ? String(req.query.search).trim() : '';
-const termino = terminoRaw.toLowerCase();
+const termino = terminoRaw.toLowerCase();                    // para comparación case-insensitive
 
-      // Traer todos los productos
-      let allProducts = await productServiceJson.findAll();
+// traer todos los productos
+const allProducts = await productServiceJson.findAll();
 
-      // // Filtrar productos según término y campo
-      // let busqueda = allProducts.filter(p => {
-      //   console.log(p);
-      //   return p.campo.toLowerCase().includes(termino);
-      // });
-// filtro seguro y simple
-let busqueda = allProducts.filter(p => {
+// filtro simple
+const busqueda = (Array.isArray(allProducts) ? allProducts : []).filter(p => {
   if (!p) return false;
 
-  // Si querés filtrar solo activos (activo puede ser booleano o string "true")
-  if (p.activo === false || String(p.activo).toLowerCase() !== "true") return false;
+  // solo activos (soporta boolean o string "true")
+  if (p.activo === false) return false;
+  if (typeof p.activo === 'string' && p.activo.trim().toLowerCase() !== 'true') return false;
 
+  // Si NO se envió campo -> buscamos por "valor" (valorDispo) comparando con el codigo
+  if (!campo) {
+    if (!valor) return false;                       // si tampoco mandaron valor, no hay búsqueda
+    const codigo = String(p.codigo || '').trim();
+    return codigo === valor;                       // comparación exacta (string)
+  }
+
+  // Si se envió campo -> buscar por campo usando 'termino' (case-insensitive)
   const val = p[campo];
   if (val === undefined || val === null) return false;
 
   const sval = String(val).trim();
-  if (sval === "" || /^null$/i.test(sval)) return false;
+  if (sval === '' || /^null$/i.test(sval)) return false;
 
-  // comparación exacta (string)
-  return sval === String(termino).trim();
+  return sval.toLowerCase() === termino;          // comparación exacta insensible a mayúsculas
 });
-      console.log(busqueda);
+      // console.log(busqueda);
+      let codigos = await productServiceJson.findAllCodigos();
 
-      res.render('products/pagina_busqueda', { product: busqueda });
+      res.render('products/pagina_busqueda', { product: busqueda ,cod: codigos });
     } catch (error) {
       console.error(error);
       res.status(500).send("Error al realizar la búsqueda");
