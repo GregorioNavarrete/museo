@@ -3,18 +3,19 @@
 
 <div class="grid-superior">
     <% for(let i = 0; i < product.length; i++) { %>
-        <a href="/modelo/<%= product[i].dataValues.id_articulo %>">
+        <a href="/modelo/<%= product[i].idUnico %>">
             <div class="card">
                 <!-- Imagen -->
                 <img src="/img/zanellat.jpg" 
-                     alt="<%= product[i].dataValues.modelo %>" 
+                     alt="<%= product[i].nombre %>" 
                      class="card-img">
                 
                 <!-- Texto de la tarjeta -->
                 <div class="card-text">
-                    <h3><%= product[i].dataValues.modelo %></h3>
-                    <p><%= product[i].dataValues.marca %></p>
-                    <p><%= product[i].dataValues.origen %></p>
+                    <h3><%= product[i].nombre %></h3>
+                    <p>Codigo=<%= product[i].codigo %></p>
+                    <p>Origen=<%= product[i].origen %></p>
+                    <p>observaciones<%= product[i].observaciones %></p>
                 </div>
             </div>
         </a>

@@ -15,18 +15,94 @@
         </div>
 
         <img src="../../img/zanellat.jpg" alt="<%= moto.modelo %>">
-        <h1><%= moto.modelo %></h1>
+        <h1><%= moto.nombre %></h1>
 
         <div class="detalles">
-            <ul>
-                <li><strong>Marca:</strong> <%= moto.marca %></li>
-                <li><strong>Origen:</strong> <%= moto.origen %></li>
-                <li><strong>Rodado:</strong> <%= moto.rodado %></li>
-                <li><strong>HP:</strong> <%= moto.hp %></li>
-                <li><strong>Motor:</strong> <%= moto.motor %></li>
-                <li><strong>Descripción:</strong> <%= moto.descripcion_corta %></li>
-                <li><strong>ID Artículo:</strong> <%= moto.id_articulo %></li>
-            </ul>
+<% 
+  // helper: devuelve true si el valor es "válido" para mostrar
+  function isValid(v) {
+    if (v === undefined) return false;
+    if (v === null) return false;
+    // aceptar números (0) y booleanos (false)
+    if (typeof v === 'number' || typeof v === 'boolean') return true;
+    const s = String(v).trim();
+    if (s === '') return false;
+    // si contiene 'null' (cualquier parte), no mostrar
+    if (/null/i.test(s)) return false;
+    return true;
+  }
+%>
+
+<ul>
+  <% if (isValid(moto.nombre)) { %>
+    <li><strong>Nombre:</strong> <%= moto.nombre %></li>
+  <% } %>
+
+  <% if (isValid(moto.año)) { %>
+    <li><strong>Año:</strong> <%= moto.año %></li>
+  <% } %>
+
+  <% if (isValid(moto.origen)) { %>
+    <li><strong>Origen:</strong> <%= moto.origen %></li>
+  <% } %>
+
+  <% if (isValid(moto.cc)) { %>
+    <li><strong>Cilindrada:</strong> <%= moto.cc %></li>
+  <% } %>
+
+  <% if (isValid(moto.HP)) { %>
+    <li><strong>HP:</strong> <%= moto.HP %></li>
+  <% } %>
+
+  <% if (isValid(moto.Velocidades)) { %>
+    <li><strong>Velocidades:</strong> <%= moto.Velocidades %></li>
+  <% } %>
+
+  <% if (isValid(moto.arranque)) { %>
+    <li><strong>Arranque:</strong> <%= moto.arranque %></li>
+  <% } %>
+
+  <% if (isValid(moto.marchas)) { %>
+    <li><strong>Marchas:</strong> <%= moto.marchas %></li>
+  <% } %>
+
+  <% if (isValid(moto.rodado)) { %>
+    <li><strong>Rodado:</strong> <%= moto.rodado %></li>
+  <% } %>
+
+  <% if (isValid(moto.motor)) { %>
+    <li><strong>Motor:</strong> <%= moto.motor %></li>
+  <% } %>
+
+  <% if (isValid(moto.carburador)) { %>
+    <li><strong>Carburador:</strong> <%= moto.carburador %></li>
+  <% } %>
+
+  <% if (isValid(moto.color)) { %>
+    <li><strong>Color:</strong> <%= moto.color %></li>
+  <% } %>
+
+  <% if (isValid(moto.frenos)) { %>
+    <li><strong>Frenos:</strong> <%= moto.frenos %></li>
+  <% } %>
+
+  <% if (isValid(moto.embrague)) { %>
+    <li><strong>Embrague:</strong> <%= moto.embrague %></li>
+  <% } %>
+
+  <% if (isValid(moto.observaciones)) { %>
+    <li><strong>Observaciones:</strong> <%= moto.observaciones %></li>
+  <% } %>
+
+  <% if (isValid(moto.codigo)) { %>
+    <li><strong>ID Artículo:</strong> <%= moto.codigo %></li>
+  <% } %>
+
+  <% if (isValid(moto.idUnico)) { %>
+    <li><strong>ID Único:</strong> <%= moto.idUnico %></li>
+  <% } %>
+</ul>
+</ul>
         </div>
     </div>
 </body>

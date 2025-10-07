@@ -4,6 +4,7 @@ const path = require('path');
 const cors = require('cors');
 
 const indexRouter = require('./routes/index.routes');
+const indexRouterJson = require('./routes/indexjson.routes');
 
 const app = express();
 const puerto = 3001;
@@ -19,7 +20,8 @@ app.set('views', path.join(__dirname, '/views'));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter); //para consultar a la bbdd
+app.use('/', indexRouterJson);//para consultar json
 
 app.use((req,res,next)=>{
 	res.status(404).render('admin/error404');
