@@ -411,7 +411,7 @@ input.input-header, select.select-header {
 
 
 /* ✅ Responsive adicional para Smartphones 360x740 */
-@media screen and (max-width: 360px) and (max-height: 740px) {
+@media screen and (max-width: 1080px) and (max-height: 1920px) {
 
   html, body {
     width: 100vw;
@@ -421,12 +421,12 @@ input.input-header, select.select-header {
     overflow: hidden;
     margin: 0;
     padding: 0;
-    position: obsolute;
+    position: absolute;
   }
 
   body::before {
     content: "";
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
