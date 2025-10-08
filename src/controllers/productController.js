@@ -88,7 +88,7 @@ const productController = {
       if (hasSearch) {
         const campoVal = String(p[campo] || '').trim().toLowerCase();
         // includes para que "zanella" encuentre "Zanella T 50"
-        return campoVal.includes(termino);
+        return campoVal==termino;
       }
 
       // Si NO hay search pero valorDispo es útil (y no es "null") -> buscar por codigo exacto
