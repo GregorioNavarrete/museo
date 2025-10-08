@@ -7,7 +7,6 @@ const fileName = path.resolve(__dirname, "../../datajson/moto.json");
 const productsServiceJson = {
     getData: async function () {
       try{
-        console.log("11111");
         return JSON.parse(fs.readFileSync(fileName, "utf-8"));
       }catch(e){
         return [];
@@ -16,18 +15,37 @@ const productsServiceJson = {
   },
     findAll: async function () {
       try{
-        console.log("22222");
+        
          return this.getData();
       }catch(e){
         return [];
       }
+  },
+findAllCodigos: async function () {
+  try {
+    const data = await this.getData();   // espero un array de objetos
+    const codigos = [];
+    if (!Array.isArray(data)) return codigos;
+
+    for (const item of data) {
+      if (!item) continue;
+      const c = item.codigo === undefined || item.codigo === null
+        ? "" 
+        : String(item.codigo).trim();
+      if (c === "" || /^null$/i.test(c)) continue; // saltear vacíos/"null"
+      codigos.push(c); // agrega tal cual (string). Mantiene duplicados si existen.
+    }
+    
+    return codigos; // array de strings
+  } catch (e) {
+    console.error("findAllCodigos error:", e);
+    return [];
   }
-
-
+},
 
 
   //////
-  ,
+  
     getAll: async function (){
         try {
             let products = await db.Moto.findAll({});
