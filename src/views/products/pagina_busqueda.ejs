@@ -42,7 +42,7 @@
   <select id="111" name="valorDispo" class="codigo-select" aria-label="Seleccionar código">
         <option value="null">Disponibles</option>
      <% for(let i = 0; i < cod.length; i++) { %>
-        <option value="<%= cod[i]%>">-- <%= cod[i] %> --</option>
+        <option value="<%= cod[i]%>"><%= cod[i] %></option>
     <% } %>
   </select>
             <div class="button-header">
