@@ -13,13 +13,6 @@ html, body {
     font-family: Nunito, sans-serif;
 }
 
-.pantalla-click {
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-}
-
 /* ===================== ANIMACIONES ===================== */
 
 /* Fondo */
@@ -109,7 +102,6 @@ html, body {
 .titulo {
     color: white;
     font-size: 150px;
-    font-family: Nunito, sans-serif;
     font-weight: bold;
     text-align: center;
     top: 21%;
@@ -124,7 +116,6 @@ html, body {
 .texto-animado2 {
     color: white;
     font-size: 80px;
-    font-family: Nunito, sans-serif;
     font-weight: bold;
     text-align: center;
     top: 30%;
@@ -144,7 +135,6 @@ html, body {
     padding: 60px;
     border-radius: 90px;
     font-size: 100px;
-    font-family: Nunito, sans-serif;
     font-weight: bold;
     text-align: center;
     bottom: 15%;
@@ -155,3 +145,101 @@ html, body {
     animation-delay: 6s;
     animation-fill-mode: forwards;
 }
+
+/* ======================================== */
+/* 🔸 RESPONSIVE ESCRITORIO (1920x1080) */
+/* ======================================== */
+@media screen and (max-width: 1920px) and (max-height: 1080px) {
+    .contenedor-pantalla {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fondo {
+        object-fit: contain;
+        background-color: black;
+    }
+
+    .superpuesta {
+        width: 15%;
+        top: 50px;
+    }
+
+    .titulo {
+        font-size: 30px;
+        top: 35%;
+    }
+
+    .texto-animado2 {
+        text-align: center;
+        font-size: 15px;
+        width: 25%;
+        margin-left: 530px;
+        top: 45%;
+    }
+
+    .texto-animado {
+        font-size: 20px;
+        padding: 20px 40px;
+        bottom: 10%;
+        border-radius: 40px;
+    }
+}
+
+/* ======================================== */
+/* 🔸 RESPONSIVE SMARTPHONE (1080x1920) */
+/* ======================================== */
+@media screen and (max-width: 1080px) and (max-height: 1920px) {
+    body {
+        overflow-y: hidden;
+        text-align: center;
+        position: relative;
+        min-height: 100vh;
+    }
+
+    .contenedor-pantalla {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fondo {
+        filter: blur(5px);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .overlay-negro {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .superpuesta {
+        width: 50%;
+        top: 20px;
+    }
+
+    .titulo {
+        font-size: 20px;
+        top: 200px;
+    }
+
+    .texto-animado2 {
+        font-size: 15px;
+        top: 35%;
+        left: 5%;
+        right: 5%;
+    }
+
+    .texto-animado {
+        font-size: 20px;
+        padding: 10px 20px;
+        bottom: 12%;
+        border-radius: 40px;
+    }
+}
+
