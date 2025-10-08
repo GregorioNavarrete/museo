@@ -6,7 +6,7 @@
         <a href="/modelo/<%= product[i].idUnico %>">
             <div class="card">
                 <!-- Imagen -->
-                <img src="/img/motos/<%= product[i].img%>" 
+                <img src="/img/motos/<%= product[i].img && product[i].img !== '' ? product[i].img : 'predeterminada.png' %>"
                      alt="<%= product[i].nombre %>" 
                      class="card-img">
                 
