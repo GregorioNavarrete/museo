@@ -53,52 +53,70 @@ const productController = {
       res.status(500).send("Error al obtener la moto");
     }
   },
-   // Búsqueda filtrada por codigo
-  productSearchJson: async (req, res) => {
-    try {
-// normalizar entrada
-const campoRaw = req.query.campo;
-const campo = campoRaw ? String(campoRaw).trim() : '';        // '' significa "buscar por valor"
-const valor = String(req.query.valorDispo || '').trim();      // valor para búsqueda por código
-const terminoRaw = req.query.search ? String(req.query.search).trim() : '';
-const termino = terminoRaw.toLowerCase();                    // para comparación case-insensitive
+ productSearchJson: async (req, res) => {
+  try {
+    // Normalizar entradas
+    const campoRaw = req.query.campo;
+    const campo = campoRaw && String(campoRaw).trim() !== '' ? String(campoRaw).trim() : 'codigo';
 
-// traer todos los productos
-const allProducts = await productServiceJson.findAll();
+    const searchRaw = String(req.query.search || '').trim();      // término de búsqueda (puede estar vacío)
+    const termino = searchRaw.toLowerCase();                      // usado para comparación case-insensitive
 
-// filtro simple
-const busqueda = (Array.isArray(allProducts) ? allProducts : []).filter(p => {
-  if (!p) return false;
+    const valorRaw = req.query.valorDispo === undefined ? '' : String(req.query.valorDispo).trim();
+    const valorLower = valorRaw.toLowerCase();
 
-  // solo activos (soporta boolean o string "true")
-  if (p.activo === false) return false;
-  if (typeof p.activo === 'string' && p.activo.trim().toLowerCase() !== 'true') return false;
+    // Flags claros
+    const hasSearch = searchRaw !== '';
+    const hasValor = valorRaw !== '' && valorLower !== 'null';    // valor útil si no está vacío ni es "null"
+    const valorIsNullString = valorLower === 'null';
 
-  // Si NO se envió campo -> buscamos por "valor" (valorDispo) comparando con el codigo
-  if (!campo) {
-    if (!valor) return false;                       // si tampoco mandaron valor, no hay búsqueda
-    const codigo = String(p.codigo || '').trim();
-    return codigo === valor;                       // comparación exacta (string)
+    // Traer todos los productos
+    const allProducts = await productServiceJson.findAll();
+    const arr = Array.isArray(allProducts) ? allProducts : [];
+
+    // Filtrar según reglas
+    const busqueda = arr.filter(p => {
+      if (!p) return false;
+
+      // --- filtro de 'activo' robusto ---
+      // Si el campo activo está definido y explicitamente NO es "true", lo excluye.
+      if (p.activo === false) return false;
+      if (typeof p.activo === 'string' && p.activo.trim().toLowerCase() !== 'true') return false;
+      // si p.activo es undefined -> lo dejamos pasar (asumimos activo por defecto)
+
+      // Si hay search -> PRIORIDAD: buscar por campo con includes (case-insensitive)
+      if (hasSearch) {
+        const campoVal = String(p[campo] || '').trim().toLowerCase();
+        // includes para que "zanella" encuentre "Zanella T 50"
+        return campoVal.includes(termino);
+      }
+
+      // Si NO hay search pero valorDispo es útil (y no es "null") -> buscar por codigo exacto
+      if (hasValor) {
+        const codigo = String(p.codigo || '').trim();
+        return codigo === valorRaw;
+      }
+
+      // Si valorDispo es exactamente "null" y no hay search -> según lo pedido, buscar por search (pero no hay),
+      // por lo tanto no hay coincidencias -> devolver false.
+      if (valorIsNullString) {
+        return false;
+      }
+
+      // Ningún criterio válido -> no incluir
+      return false;
+    });
+
+    // Obtener lista de codigos para la vista (la función ya existente)
+    let codigos = await productServiceJson.findAllCodigos();
+
+    // Renderizar (mantengo 'cod' como variable en la vista, como tenías)
+    res.render('products/pagina_busqueda', { product: busqueda, cod: codigos });
+  } catch (error) {
+    console.error('Error en productSearchJson:', error);
+    res.status(500).send("Error al realizar la búsqueda");
   }
-
-  // Si se envió campo -> buscar por campo usando 'termino' (case-insensitive)
-  const val = p[campo];
-  if (val === undefined || val === null) return false;
-
-  const sval = String(val).trim();
-  if (sval === '' || /^null$/i.test(sval)) return false;
-
-  return sval.toLowerCase() === termino;          // comparación exacta insensible a mayúsculas
-});
-      // console.log(busqueda);
-      let codigos = await productServiceJson.findAllCodigos();
-
-      res.render('products/pagina_busqueda', { product: busqueda ,cod: codigos });
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Error al realizar la búsqueda");
-    }
-  }
+}
   
 ///////////////////////////////////////////////Debajo estan los metodos para bbd
   ,
