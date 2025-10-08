@@ -154,3 +154,50 @@ body {
   }
 
 }
+
+
+/* ✅ Media Query para Smartphones 360x740 */
+@media screen and (max-width: 400px) and (max-height: 800px) {
+  body {
+    padding: 2px;
+  }
+
+  .grid-superior {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas apretadas */
+    gap: 4px;
+    justify-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .card {
+    width: 85px !important;
+    height: 120px !important;
+    border-radius: 10px;
+    padding: 4px;
+  }
+
+  .card-img {
+    width: 70px !important;
+    height: 70px !important;
+    object-fit: cover !important;
+    border-radius: 10px;
+    margin-top: 2px;
+  }
+
+  .card-text {
+    padding: 2px;
+    text-align: start;
+  }
+
+  .card-text h3 {
+    font-size: 7.5px;
+    margin: 1px 0;
+  }
+
+  .card-text p {
+    font-size: 6px;
+    margin: 0;
+  }
+}
