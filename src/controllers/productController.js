@@ -53,53 +53,6 @@ const productController = {
       res.status(500).send("Error al obtener la moto");
     }
   },
-<<<<<<< HEAD
-   // Búsqueda filtrada por codigo
-  productSearchJson: async (req, res) => {
-    try {
-// normalizar entrada
-const campoRaw = req.query.campo;
-const campo = campoRaw ? String(campoRaw).trim() : '';        // '' significa "buscar por valor"
-const valor = String(req.query.valorDispo || '').trim();      // valor para búsqueda por código
-const terminoRaw = req.query.search ? String(req.query.search).trim() : '';
-const termino = terminoRaw.toLowerCase();                    // para comparación case-insensitive
-
-// traer todos los productos
-const allProducts = await productServiceJson.findAll();
-
-// filtro simple
-const busqueda = (Array.isArray(allProducts) ? allProducts : []).filter(p => {
-  if (!p) return false;
-
-  // solo activos (soporta boolean o string "true")
-  if (p.activo === false) return false;
-  if (typeof p.activo === 'string' && p.activo.trim().toLowerCase() !== 'true') return false;
-
-  // Si NO se envió campo -> buscamos por "valor" (valorDispo) comparando con el codigo
-  if (!campo) {
-    if (!valor) return false;                       // si tampoco mandaron valor, no hay búsqueda
-    const codigo = String(p.codigo || '').trim();
-    return codigo === valor;                       // comparación exacta (string)
-  }
-
-  // Si se envió campo -> buscar por campo usando 'termino' (case-insensitive)
-  const val = p[campo];
-  if (val === undefined || val === null) return false;
-
-  const sval = String(val).trim();
-  if (sval === '' || /^null$/i.test(sval)) return false;
-
-  return sval.toLowerCase() === termino;          // comparación exacta insensible a mayúsculas
-});
-      // console.log(busqueda);
-      let codigos = await productServiceJson.findAllCodigos();
-
-      res.render('products/pagina_busqueda', { product: busqueda ,cod: codigos });
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Error al realizar la búsqueda");
-    }
-=======
  productSearchJson: async (req, res) => {
   try {
     // Normalizar entradas
@@ -162,7 +115,6 @@ const busqueda = (Array.isArray(allProducts) ? allProducts : []).filter(p => {
   } catch (error) {
     console.error('Error en productSearchJson:', error);
     res.status(500).send("Error al realizar la búsqueda");
->>>>>>> 0d1e0c685edb22753b64f5b0e471010387c3cb71
   }
 }
   
