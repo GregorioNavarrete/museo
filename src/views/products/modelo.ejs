@@ -14,7 +14,10 @@
             <a href="/pagina_historia" class="boton-catalogo">¡Descubrí la historia del Museo!</a>
         </div>
 
-        <img src="../../img/motos/<%=moto.img%>" alt="<%= moto.modelo %>">
+        <!-- <img src="../../img/motos/<%=moto.img%>" alt="<%= moto.modelo %>"> -->
+        <img src="../../img/motos/<%= moto.img && moto.img !== '' ? moto.img : 'predeterminada.png' %>"
+        alt="<%= moto.nombre %>" 
+        class="card-img">
         <h1><%= moto.nombre %></h1>
 
         <div class="detalles">

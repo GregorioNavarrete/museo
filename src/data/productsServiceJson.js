@@ -2,12 +2,23 @@ const db = require('../model/database/models')
 const fs = require('fs');
 const path = require('path');
 const fileName = path.resolve(__dirname, "../../datajson/moto.json");
+const fileName6 = path.resolve(__dirname, "../../datajson/6motos.json");
 
 
 const productsServiceJson = {
     getData: async function () {
       try{
+        
         return JSON.parse(fs.readFileSync(fileName, "utf-8"));
+      }catch(e){
+        return [];
+      }
+    
+  },
+      motos6: async function () {
+      try{
+        
+        return JSON.parse(fs.readFileSync(fileName6, "utf-8"));
       }catch(e){
         return [];
       }
@@ -35,7 +46,7 @@ findAllCodigos: async function () {
       if (c === "" || /^null$/i.test(c)) continue; // saltear vacíos/"null"
       codigos.push(c); // agrega tal cual (string). Mantiene duplicados si existen.
     }
-    
+
     return codigos; // array de strings
   } catch (e) {
     console.error("findAllCodigos error:", e);

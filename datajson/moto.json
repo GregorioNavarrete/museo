@@ -19,7 +19,7 @@
     "observaciones": "Patricio Capriotti (Quilmes)",
     "idUnico": "0",
     "activo": "true",
-    "img":"2.jpg"
+    "img": "2.jpg"
   },
   {
     "codigo": "3",
@@ -41,7 +41,7 @@
     "observaciones": "Pinci Quilmes",
     "idUnico": "1",
     "activo": "true",
-    "img":""
+    "img": ""
   },
   {
     "codigo": "4",
@@ -63,7 +63,7 @@
     "observaciones": "Patricio Capriotti (Hno) Quilmes.",
     "idUnico": "2",
     "activo": "true",
-    "img":"4.jpg"
+    "img": "4.jpg"
   },
   {
     "codigo": "5",
@@ -85,7 +85,7 @@
     "observaciones": "Marcelo Menéndez (Quilmes)",
     "idUnico": "3",
     "activo": "true",
-    "img":"5.jpg"
+    "img": "5.jpg"
   },
   {
     "codigo": "6",
@@ -107,7 +107,7 @@
     "observaciones": "Pinci (Quilmes)",
     "idUnico": "4",
     "activo": "true",
-    "img":""
+    "img": ""
   },
   {
     "codigo": "7",
@@ -129,7 +129,7 @@
     "observaciones": "Patricio Capriotti",
     "idUnico": "5",
     "activo": "true",
-    "img":""
+    "img": ""
   },
   {
     "codigo": "8",
@@ -151,7 +151,7 @@
     "observaciones": "Ivano (Cordoba/Italia)",
     "idUnico": "6",
     "activo": "true",
-    "img":""
+    "img": ""
   },
   {
     "codigo": "9",
@@ -173,7 +173,7 @@
     "observaciones": "Marcelo (Quilmes)",
     "idUnico": "7",
     "activo": "true",
-    "img":""
+    "img": ""
   },
   {
     "codigo": "10",
@@ -195,7 +195,7 @@
     "observaciones": "Ivano (Italia)",
     "idUnico": "8",
     "activo": "true",
-    "img":"10.png"
+    "img": "10.png"
   },
   {
     "codigo": "11",
@@ -217,7 +217,7 @@
     "observaciones": "Ivano (Italia)",
     "idUnico": "9",
     "activo": "true",
-    "img":""
+    "img": ""
   },
   {
     "codigo": "12",
@@ -239,7 +239,7 @@
     "observaciones": "Pinci (Quilmes)",
     "idUnico": "10",
     "activo": "true",
-    "img":""
+    "img": ""
   },
   {
     "codigo": "13",
@@ -261,7 +261,7 @@
     "observaciones": "Pinci (Quilmes)",
     "idUnico": "11",
     "activo": "true",
-    "img":""
+    "img": ""
   },
   {
     "codigo": "14",
@@ -283,7 +283,7 @@
     "observaciones": "Pinci (Quilmes)",
     "idUnico": "12",
     "activo": "true",
-    "img":""
+    "img": ""
   },
   {
     "codigo": "15",
@@ -305,7 +305,755 @@
     "observaciones": "Pinci (Quilmes)",
     "idUnico": "13",
     "activo": "true",
-    "img":"15.jpg"
+    "img": "15.jpg"
+  },
+  {
+    "codigo": "16",
+    "nombre": "Zanella V3 HL",
+    "año": "1987",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "Minarelli",
+    "carburador": "",
+    "color": "Rosa",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Llanta 7 rayos aleación, con llave de contacto, escape largo",
+    "observaciones": "",
+    "idUnico": "47",
+    "activo": "true",
+    "img": ""
+  },
+  {
+    "codigo": "17",
+    "nombre": "Zanella V3",
+    "año": "1983",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "A Patada",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Marrón",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Llanta a rayos",
+    "observaciones": "Emilio Golia (Chacabuco)",
+    "idUnico": "48",
+    "activo": "true",
+    "img": ""
+  },
+  {
+    "codigo": "18",
+    "nombre": "Zanella V3 KS",
+    "año": "1987",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "Minarelli",
+    "carburador": "",
+    "color": "Celeste",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Llanta a rayos, Faro bajo Canasta",
+    "observaciones": "Ivano (Italia)",
+    "idUnico": "49",
+    "activo": "true",
+    "img": ""
+  },
+  {
+    "codigo": "19",
+    "nombre": "Zanella V3",
+    "año": "1987",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "Minarelli",
+    "carburador": "",
+    "color": "Naranja",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Llanta Aleación 7 rayos",
+    "observaciones": "Julian Flechita (Quilmes)",
+    "idUnico": "50",
+    "activo": "true",
+    "img": ""
+  },
+  {
+    "codigo": "20",
+    "nombre": "Zanella V3",
+    "año": "1985",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "Minarelli",
+    "carburador": "",
+    "color": "Verde",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Original, Llanta a Rayos",
+    "observaciones": "Leandro Julian",
+    "idUnico": "51",
+    "activo": "true",
+    "img": ""
+  },
+  {
+    "codigo": "21",
+    "nombre": "Zanella V3",
+    "año": "1986",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "Minarelli",
+    "carburador": "",
+    "color": "Amarilla",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Llantas Aleación 7 Rayos, con sillon trasero y accesorio",
+    "observaciones": "Patricio Capriotti",
+    "idUnico": "52",
+    "activo": "true",
+    "img": "21.jpg"
+  },
+  {
+    "codigo": "22",
+    "nombre": "Zanella Bambina",
+    "año": "1978",
+    "origen": "",
+    "cc": "48cc",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "Monocilíndrico, 2 tiempos",
+    "carburador": "",
+    "color": "",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Mismo motor que la Zanella 50T",
+    "observaciones": "Pinci (Quilmes)",
+    "idUnico": "53",
+    "activo": "true",
+    "img": "22.jpg"
+  },
+  {
+    "codigo": "23",
+    "nombre": "Zanella Bambina",
+    "año": "1972",
+    "origen": "",
+    "cc": "48cc",
+    "HP": "2.3",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "Monocilíndrico, 2 tiempos",
+    "carburador": "",
+    "color": "Verde",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Asiento Largo, carenado cubre cromos",
+    "observaciones": "",
+    "idUnico": "54",
+    "activo": "true",
+    "img": "23.jpg"
+  },
+  {
+    "codigo": "24",
+    "nombre": "Zanella Bambina",
+    "año": "1972",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "Monocilíndrico, 2 tiempos",
+    "carburador": "",
+    "color": "Naranja / Blanco",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Asiento individual",
+    "observaciones": "Dario Cernaz (Quilmes)",
+    "idUnico": "55",
+    "activo": "true",
+    "img": ""
+  },
+  {
+    "codigo": "25",
+    "nombre": "Zanella Bambina",
+    "año": "1967",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "Monocilíndrico, 2 tiempos",
+    "carburador": "",
+    "color": "Celeste",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Con Cubre Piernas",
+    "observaciones": "Julian (Villa Urquiza)",
+    "idUnico": "56",
+    "activo": "true",
+    "img": "25.jpg"
+  },
+  {
+    "codigo": "26",
+    "nombre": "Zanella Pocket Automix Full 50",
+    "año": "1991",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "a patada",
+    "marchas": "",
+    "rodado": "",
+    "motor": "Monocilíndrico, 2 tiempos, 40.4 mm diámetro",
+    "carburador": "",
+    "color": "Amarilla / Beige",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Llantas de aleación, con giros y mezclador, centrifuga, velocidad máxima 50km/h",
+    "observaciones": "Leandro Pinci",
+    "idUnico": "57",
+    "activo": "true",
+    "img": "26.jpg"
+  },
+  {
+    "codigo": "27",
+    "nombre": "Zanella Pocket GL 50",
+    "año": "1991",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Roja",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Llantas Aleación, s/ giros s/ mezclador s/ velocimetro",
+    "observaciones": "Patricio (Quilmes)",
+    "idUnico": "58",
+    "activo": "true",
+    "img": ""
+  },
+  {
+    "codigo": "28",
+    "nombre": "Zanella Pocket GL 50",
+    "año": "1991",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Blanca Crema",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Rueda a Rayos,  s/ giros s/ mezclador s/ velocimetro",
+    "observaciones": "Patricio (Quilmes)",
+    "idUnico": "59",
+    "activo": "true",
+    "img": ""
+  },
+  {
+    "codigo": "29",
+    "nombre": "Zanella Due Automix Full 50",
+    "año": "1991",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Azul",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Rueda aleación 10 Rayos, Centrifuga, c/ giros y velocímetro, c/mezclador de acite",
+    "observaciones": "Pinci (Quilmes)",
+    "idUnico": "60",
+    "activo": "true",
+    "img": ""
+  },
+  {
+    "codigo": "30",
+    "nombre": "Zanella Due GL",
+    "año": "1992",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Naranja",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "aleación 10 rayos",
+    "observaciones": "Miguel Tucci (La Tablada)",
+    "idUnico": "61",
+    "activo": "true",
+    "img": ""
+  },
+  {
+    "codigo": "31",
+    "nombre": "Zanella Due VR GL Full",
+    "año": "1992",
+    "origen": "",
+    "cc": "50",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Azul",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "c/ variador de velocidad o correa, c/ giros, c/ velocímetro, llanta aleación 3 Rayos",
+    "observaciones": "Alejandro Morrero",
+    "idUnico": "62",
+    "activo": "true",
+    "img": "31.jpg"
+  },
+  {
+    "codigo": "32",
+    "nombre": "Zanella New Fire Plus",
+    "año": "2006",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Azul",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "0 kilómetros, c/ giros c/ automix c/ velocímetro, llanta aleación 5 Rayos",
+    "observaciones": "Piojo Biagioli",
+    "idUnico": "63",
+    "activo": "true",
+    "img": ""
+  },
+  {
+    "codigo": "33",
+    "nombre": "Zanella New Fire Plus",
+    "año": "2006",
+    "origen": "",
+    "cc": "50",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Roja",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "llanta 3 rayos 95 mm. (sol), 0 kilómetros, c/ giros c/ automix c/ velocimetro",
+    "observaciones": "Sergio Lema (Haedo)",
+    "idUnico": "64",
+    "activo": "true",
+    "img": "33.jpg"
+  },
+  {
+    "codigo": "34",
+    "nombre": "Zanella Sol 50 Plus",
+    "año": "1994",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Roja",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "c/giros c/automix c/velocímetro, llanta aleación 3 rayos",
+    "observaciones": "Hernan (San Justo)",
+    "idUnico": "65",
+    "activo": "true",
+    "img": ""
+  },
+  {
+    "codigo": "35",
+    "nombre": "Zanella New Fire Plus 50",
+    "año": "2005",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Gris Oscuro",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "llantas aleación 3 rayos, c/ giros c/ automix s/ velocimetro",
+    "observaciones": "Adrian (Flores)",
+    "idUnico": "66",
+    "activo": "true",
+    "img": "35.jpg"
+  },
+  {
+    "codigo": "36",
+    "nombre": "Zanella Fire 50",
+    "año": "1995",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Morada con blanco",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Llantas Aleación, s/ giros s/ mezclador s/ velocimetro",
+    "observaciones": "Patricio (Quilmes)",
+    "idUnico": "67",
+    "activo": "true",
+    "img": "36.jpg"
+  },
+  {
+    "codigo": "44",
+    "nombre": "Juki Dribbling 4M",
+    "año": "1995",
+    "origen": "",
+    "cc": "50",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "4",
+    "rodado": "",
+    "motor": "Morini",
+    "carburador": "",
+    "color": "Blanca",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Giros y velocímetro Full",
+    "observaciones": "Dario Paladino",
+    "idUnico": "68",
+    "activo": "true",
+    "img": "44.jpg"
+  },
+  {
+    "codigo": "45",
+    "nombre": "Garelli 50",
+    "año": "1978",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "A Pedales",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Azul Oscuro",
+    "frenos": "",
+    "embrague": "Centrifugo",
+    "datos adjuntos": "Ruedas A Rayos",
+    "observaciones": "Patricio Capriotti",
+    "idUnico": "69",
+    "activo": "true",
+    "img": "45.jpg"
+  },
+  {
+    "codigo": "46",
+    "nombre": "Garelli Noi Matic",
+    "año": "1991",
+    "origen": "",
+    "cc": "50",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Roja",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Centrifuga, llantas aleación",
+    "observaciones": "Coronel Suarez (Buenos Aires)",
+    "idUnico": "70",
+    "activo": "true",
+    "img": "46.jpg"
+  },
+  {
+    "codigo": "47",
+    "nombre": "Garelli Noi TL Matic",
+    "año": "1994",
+    "origen": "",
+    "cc": "50",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Azul",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Centrifuga, llantas aleación",
+    "observaciones": "Francisco Roldan",
+    "idUnico": "71",
+    "activo": "true",
+    "img": "47.jpg"
+  },
+  {
+    "codigo": "48",
+    "nombre": "Gilera Fantic Issimo Pedali 50",
+    "año": "1979",
+    "origen": "Italia",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "A Pedales",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Naranja",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Rueda a Rayos",
+    "observaciones": "Dario Voldato (Quilmes)",
+    "idUnico": "72",
+    "activo": "true",
+    "img": "48.jpg"
+  },
+  {
+    "codigo": "49",
+    "nombre": "Gilera Rally 50",
+    "año": "1991",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Azul",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Centrifugo, aleación 5 rayos",
+    "observaciones": "Julian Flechita",
+    "idUnico": "73",
+    "activo": "true",
+    "img": "49.jpg"
+  },
+  {
+    "codigo": "50",
+    "nombre": "Gilera Fanti 50",
+    "año": "1986",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Roja",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Aleación, Centrifuga",
+    "observaciones": "Julian Flechita",
+    "idUnico": "74",
+    "activo": "true",
+    "img": "50.jpg"
+  },
+  {
+    "codigo": "51",
+    "nombre": "Gilera Rally Ra",
+    "año": "",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Gris",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Centrifuga, Aleación 5 Rayos",
+    "observaciones": "Dario (Quilmes)",
+    "idUnico": "75",
+    "activo": "true",
+    "img": ""
+  },
+  {
+    "codigo": "52",
+    "nombre": "Da Dalt Extra MO4",
+    "año": "1992",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "4",
+    "rodado": "",
+    "motor": "Da Dalt Morini (Italiano)",
+    "carburador": "",
+    "color": "Roja",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "0 kilómetros, Aleación",
+    "observaciones": "Hernan (La Matanza)",
+    "idUnico": "76",
+    "activo": "true",
+    "img": "52.jpg"
+  },
+  {
+    "codigo": "53",
+    "nombre": "Da Dalt Vixen Sixty",
+    "año": "1998",
+    "origen": "60",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "Da Dalt Argentina",
+    "carburador": "",
+    "color": "Gris con verde",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Full c/ suspensión Trasera Monoshock",
+    "observaciones": "Fabian (San Justo)",
+    "idUnico": "77",
+    "activo": "true",
+    "img": "53.png"
+  },
+  {
+    "codigo": "54",
+    "nombre": "Da Dalt Estándar R12",
+    "año": "1992",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "12",
+    "motor": "Da Dalt",
+    "carburador": "",
+    "color": "Gris",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "",
+    "observaciones": "San Francisco (Córdoba)",
+    "idUnico": "78",
+    "activo": "true",
+    "img": ""
+  },
+  {
+    "codigo": "55",
+    "nombre": "Da Dalt Preti",
+    "año": "",
+    "origen": "",
+    "cc": "50",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Verde Manzana",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "0 kilómetros, centrifuga",
+    "observaciones": "Hernan / Fabian",
+    "idUnico": "79",
+    "activo": "true",
+    "img": "55.jpg"
+  },
+  {
+    "codigo": "56",
+    "nombre": "Da Dalt Chap 50",
+    "año": "2008",
+    "origen": "",
+    "cc": "",
+    "HP": "",
+    "Velocidades": "",
+    "arranque": "A Patada",
+    "marchas": "",
+    "rodado": "",
+    "motor": "",
+    "carburador": "",
+    "color": "Celeste",
+    "frenos": "",
+    "embrague": "",
+    "datos adjuntos": "Centrifuga",
+    "observaciones": "Fabian San Justo",
+    "idUnico": "80",
+    "activo": "true",
+    "img": "56.jpg"
   },
   {
     "codigo": "57",
@@ -327,7 +1075,7 @@
     "observaciones": "Dario Paladino",
     "idUnico": "14",
     "activo": "true",
-    "img":"57.jpg"
+    "img": "57.jpg"
   },
   {
     "codigo": "58",
@@ -349,7 +1097,7 @@
     "observaciones": "Hernan (San Justo)",
     "idUnico": "15",
     "activo": "true",
-    "img":""
+    "img": "58.jpg"
   },
   {
     "codigo": "59",
@@ -371,7 +1119,7 @@
     "observaciones": "Hernan (San Justo)",
     "idUnico": "16",
     "activo": "true",
-    "img":"59.jpg"
+    "img": "59.jpg"
   },
   {
     "codigo": "61",
@@ -393,7 +1141,7 @@
     "observaciones": "Julian Flechita",
     "idUnico": "17",
     "activo": "true",
-    "img":"61.jpg"
+    "img": "61.jpg"
   },
   {
     "codigo": "62",
@@ -415,7 +1163,7 @@
     "observaciones": "Sergio Sanchez Santa Fe (Ivano)",
     "idUnico": "18",
     "activo": "true",
-    "img":"62.jpg"
+    "img": "62.jpg"
   },
   {
     "codigo": "63",
@@ -437,7 +1185,7 @@
     "observaciones": "",
     "idUnico": "19",
     "activo": "true",
-    "img":"63.jpg"
+    "img": "63.jpg"
   },
   {
     "codigo": "64",
@@ -459,7 +1207,7 @@
     "observaciones": "Julian (Villa Urquiza)",
     "idUnico": "20",
     "activo": "true",
-    "img":"64.jpg"
+    "img": "64.jpg"
   },
   {
     "codigo": "86",
@@ -481,7 +1229,7 @@
     "observaciones": "Dueña actual Anabellia Zamora, antiguo dueño Marcelo de Quilmes",
     "idUnico": "21",
     "activo": "true",
-    "img":"86.jpg"
+    "img": "86.jpg"
   },
   {
     "codigo": "87",
@@ -503,7 +1251,7 @@
     "observaciones": "Victor Motor Speed",
     "idUnico": "22",
     "activo": "true",
-    "img":"87.jpg"
+    "img": "87.jpg"
   },
   {
     "codigo": "88",
@@ -525,7 +1273,7 @@
     "observaciones": "Julian de Villa Urquiza",
     "idUnico": "23",
     "activo": "true",
-    "img":""
+    "img": ""
   },
   {
     "codigo": "89",
@@ -547,7 +1295,7 @@
     "observaciones": "Milton de La Plata",
     "idUnico": "24",
     "activo": "true",
-    "img":"89.png"
+    "img": "89.png"
   },
   {
     "codigo": "90",
@@ -569,7 +1317,7 @@
     "observaciones": "Julian V Urquiza",
     "idUnico": "25",
     "activo": "true",
-    "img":""
+    "img": ""
   },
   {
     "codigo": "91",
@@ -591,7 +1339,7 @@
     "observaciones": "",
     "idUnico": "26",
     "activo": "true",
-    "img":""
+    "img": ""
   },
   {
     "codigo": "92",
@@ -613,7 +1361,7 @@
     "observaciones": "",
     "idUnico": "27",
     "activo": "true",
-    "img":"92.jpg"
+    "img": "92.jpg"
   },
   {
     "codigo": "93",
@@ -635,7 +1383,7 @@
     "observaciones": "Dueño Ivano de Córdoba",
     "idUnico": "28",
     "activo": "true",
-    "img":"93.jpg"
+    "img": "93.jpg"
   },
   {
     "codigo": "94",
@@ -657,7 +1405,7 @@
     "observaciones": "Julian Flechita",
     "idUnico": "29",
     "activo": "true",
-    "img":""
+    "img": "94.jpg"
   },
   {
     "codigo": "95",
@@ -679,7 +1427,7 @@
     "observaciones": "Dueño Mario/Ivano",
     "idUnico": "30",
     "activo": "true",
-    "img":"95.jpg"
+    "img": "95.jpg"
   },
   {
     "codigo": "96",
@@ -701,7 +1449,7 @@
     "observaciones": "",
     "idUnico": "31",
     "activo": "true",
-    "img":"96.jpg"
+    "img": "96.jpg"
   },
   {
     "codigo": "97",
@@ -723,7 +1471,7 @@
     "observaciones": "Leandro Jota de Quilmes",
     "idUnico": "32",
     "activo": "true",
-    "img":"97.jpg"
+    "img": "97.jpg"
   },
   {
     "codigo": "98",
@@ -745,7 +1493,7 @@
     "observaciones": "Valentin Rizzo / Hernan de San Justo",
     "idUnico": "33",
     "activo": "true",
-    "img":""
+    "img": ""
   },
   {
     "codigo": "99",
@@ -767,7 +1515,7 @@
     "observaciones": "Gustavo Kariello / Hernan de San Justo",
     "idUnico": "34",
     "activo": "true",
-    "img":"99.jpg"
+    "img": "99.jpg"
   },
   {
     "codigo": "100",
@@ -789,7 +1537,7 @@
     "observaciones": "Rodrigo de Santiago del Estero",
     "idUnico": "35",
     "activo": "true",
-    "img":""
+    "img": ""
   },
   {
     "codigo": "101",
@@ -811,7 +1559,7 @@
     "observaciones": "Importador y distribuidor Cicles Derona - Avenida Cabildo 8843 y Avenida Mosconi 2990 (CABA), Leonardo Maccaferri \"Fabian de San Justo\"",
     "idUnico": "36",
     "activo": "true",
-    "img":"101.png"
+    "img": "101.png"
   },
   {
     "codigo": "102",
@@ -833,7 +1581,7 @@
     "observaciones": "Ivano de Córdoba",
     "idUnico": "37",
     "activo": "true",
-    "img":""
+    "img": ""
   },
   {
     "codigo": "103",
@@ -855,7 +1603,7 @@
     "observaciones": "Ivano de Córdoba",
     "idUnico": "38",
     "activo": "true",
-    "img":""
+    "img": ""
   },
   {
     "codigo": "104",
@@ -877,7 +1625,7 @@
     "observaciones": "Ciudad de La Banda",
     "idUnico": "39",
     "activo": "true",
-    "img":"104.jpg"
+    "img": "104.jpg"
   },
   {
     "codigo": "105",
@@ -899,7 +1647,7 @@
     "observaciones": "",
     "idUnico": "40",
     "activo": "true",
-    "img":"105.jpg"
+    "img": "105.jpg"
   },
   {
     "codigo": "106",
@@ -921,7 +1669,7 @@
     "observaciones": "",
     "idUnico": "41",
     "activo": "true",
-    "img":"106.jpg"
+    "img": "106.jpg"
   },
   {
     "codigo": "107",
@@ -943,7 +1691,7 @@
     "observaciones": "",
     "idUnico": "42",
     "activo": "true",
-    "img":"107.png"
+    "img": "107.png"
   },
   {
     "codigo": "108",
@@ -965,7 +1713,7 @@
     "observaciones": "",
     "idUnico": "43",
     "activo": "true",
-    "img":"108.jpg"
+    "img": "108.jpg"
   },
   {
     "codigo": "109",
@@ -987,7 +1735,7 @@
     "observaciones": "",
     "idUnico": "44",
     "activo": "true",
-    "img":"109.jpg"
+    "img": "109.jpg"
   },
   {
     "codigo": "110",
@@ -1009,7 +1757,7 @@
     "observaciones": "",
     "idUnico": "45",
     "activo": "true",
-    "img":"110.jpg"
+    "img": "110.jpg"
   },
   {
     "codigo": "111",
@@ -1031,6 +1779,6 @@
     "observaciones": "",
     "idUnico": "46",
     "activo": "true",
-    "img":""
+    "img": ""
   }
 ]

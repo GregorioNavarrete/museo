@@ -26,10 +26,11 @@ const productController = {
   indexJson: async (req, res) => {
     try {
       //let motos = await productServiceJson.findAll(); // Trae todos los productos
-        let motos = await productServiceJson.findAll() || [];
+        //let motos = await productServiceJson.findAll() || [];
         let codigos = await productServiceJson.findAllCodigos();
         //console.log(codigos);
-        let motos6 = Array.isArray(motos) ? motos.slice(0, 6) : [];
+        //let motos6 = Array.isArray(motos) ? motos.slice(0, 6) : [];
+        let motos6 = await productServiceJson.motos6();
       res.render('products/pagina_busqueda', { product: motos6, cod: codigos });
     } catch (error) {
       console.error(error);
