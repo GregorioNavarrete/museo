@@ -228,12 +228,15 @@ html, body {
         top: 200px;
     }
 
-    .texto-animado2 {
+ .texto-animado2 {
+        text-align: center;
         font-size: 15px;
+        width: 80%;
+        margin-left: 0px;
+        margin-right: 80px;
         top: 35%;
-        left: 5%;
-        right: 5%;
     }
+ 
 
     .texto-animado {
         font-size: 20px;
