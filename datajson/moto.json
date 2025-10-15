@@ -1585,7 +1585,7 @@
   },
   {
     "codigo": "103",
-    "nombre": "Zanella V2 (no tiene foto)",
+    "nombre": "Zanella V2",
     "año": "1982",
     "origen": "Argentina",
     "cc": "50",
@@ -1603,7 +1603,7 @@
     "observaciones": "Ivano de Córdoba",
     "idUnico": "38",
     "activo": "true",
-    "img": ""
+    "img": "103.jpg"
   },
   {
     "codigo": "104",
