@@ -168,11 +168,81 @@ html, body {
         animation-delay: 3s;
     }
 }
-
 /* ======================================== */
-/* 🔸 RESPONSIVE SMARTPHONE (ej. 1080x1920) */
+/* 🔸 RESPONSIVE SMARTPHONE (1080x1920) - ADAPTADO A LA IMAGEN */
 /* ======================================== */
 @media screen and (max-width: 1080px) and (max-height: 1920px) {
+    body {
+        overflow: hidden; /* Nos aseguramos de que no haya scroll inesperado */
+        text-align: center;
+        position: relative;
+        min-height: 100vh;
+    }
+
+    .contenedor-pantalla {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: var(--COLOR-FONDO-NEGRO);
+    }
+
+    .fondo {
+        filter: blur(7px);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        animation: fadeInFondo 1.5s ease forwards;
+        position: absolute; /* Usamos absolute para que ocupe todo el espacio */
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .overlay-negro {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 5;
+    }
+
+    .superpuesta { /* Logo */
+        top: 200px; /* Ajustamos la posición para que quede más abajo, como en la imagen */
+        width: 100%; /* Reducimos el ancho para que no sea tan gigante */
+        max-width: 1000px; /* Un máximo para que no se estire de más en tablets similares */
+        position: absolute;
+        z-index: 10;
+        opacity: 0;
+        animation: fadeIn 1.5s ease forwards;
+        animation-delay: 1.5s;
+    }
+
+    .texto-animado { /* Texto "¡Tocá la pantalla para continuar!" */
+        color: white;
+        font-size: 50px; /* Aumentamos el tamaño de la fuente para que sea más visible */
+        font-weight: bold;
+        text-align: center;
+        bottom: 30%; /* Ajustamos la posición para que quede justo debajo del logo */
+        position: absolute;
+        z-index: 10;
+        opacity: 0;
+        animation: fadeIn 1.5s ease forwards;
+        animation-delay: 3s;
+    }
+}
+
+
+/* ======================================== */
+/* 🔸 RESPONSIVE SMARTPHONE PEQUEÑO (360x740) - ADAPTADO A LA IMAGEN */
+/* ======================================== */
+@media screen and (max-width: 360px) and (max-height: 740px) {
+    body {
+        overflow: hidden; /* Nos aseguramos de que no haya scroll */
+        text-align: center;
+        position: relative;
+        min-height: 100vh;
+    }
+
     .contenedor-pantalla {
         flex-direction: column;
         justify-content: center;
@@ -200,10 +270,10 @@ html, body {
         z-index: 5;
     }
 
-    .superpuesta {
-        top: 100px;
-        width: 100%;
-        max-width: 700px;
+    .superpuesta { /* Logo */
+        top: 18vh; /* Usamos vh para que se adapte mejor a la altura relativa */
+        width: 100%; /* Que ocupe casi todo el ancho */
+        max-width: 320px; /* Un máximo para que no se deforme demasiado si el ancho es un poco más */
         position: absolute;
         z-index: 10;
         opacity: 0;
@@ -211,12 +281,12 @@ html, body {
         animation-delay: 1.5s;
     }
 
-    .texto-animado {
+    .texto-animado { /* Texto "¡Tocá la pantalla para continuar!" */
         color: white;
-        font-size: 20px;
+        font-size: 20px; /* Un tamaño de fuente más pequeño para esta resolución */
         font-weight: bold;
         text-align: center;
-        bottom: 25%;
+        bottom: 22vh; /* Ajustamos con vh para que quede en una posición relativa a la altura */
         position: absolute;
         z-index: 10;
         opacity: 0;
