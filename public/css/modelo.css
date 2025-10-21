@@ -225,7 +225,7 @@ a {
 /* ======================================== */
 /* 🔸 RESPONSIVE SMARTPHONE PEQUEÑO (360x740) */
 /* ======================================== */
-@media screen and (max-width: 360px) and (max-height: 740px) {
+@media screen and (max-width: 430px) and (max-height: 830px) {
 
     body {
         /* Permitimos el scroll vertical */
