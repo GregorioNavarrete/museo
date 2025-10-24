@@ -4,16 +4,68 @@
 /* 🔹 ESTILOS BASE (Generales) */
 /* ======================================== */
 body {
-  font-family: "Nunito", sans-serif;
-  animation: fadeIn 1s ease forwards;
-}
+    font-family: "Nunito", sans-serif;
+    animation: fadeIn 1s ease forwards;
+  }
 
-.models {
-  text-decoration: none;
-  color: inherit;
-  animation: fadeIn 1s ease forwards;
-}
+  .models {
+    text-decoration: none;
+    color: inherit;
+    animation: fadeIn 1s ease forwards;
+  }
 
+  /* ✅ Estilos ajustados para ocupar más espacio en pantallas 1080x1920 */
+  .grid-superior {
+    display: grid;
+    /* columnas más anchas */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2px; /* más separación entre cartas */
+    max-width: 700px; /* más ancho total */
+    justify-items: center;
+    justify-content: center;
+    margin: 10px auto; /* un poco de margen arriba/abajo */
+  }
+
+  .card {
+    width: 120px !important;
+    height: 155px !important;
+    border: none !important;
+    overflow: hidden !important;
+    animation: fadeIn 1s ease forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 17px;
+    background: var(--COLOR-GRADIENTE-CARTA);
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.3);
+    padding: 6px;
+  }
+
+  .card-img {
+    width: 100px;
+    height: 90px;
+    border-radius: 17px;
+    object-fit: cover;
+    
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s;
+  }
+
+  .card-text {
+    padding: 10px 8px;
+    color: var(--COLOR-TEXTO-BLANCO);
+    text-align: start;
+  }
+
+  .card-text h3 {
+    font-size: 12px; /* más grande */
+    margin: 5px 0;
+  }
+
+  .card-text p {
+    font-size: 10px; /* más legible */
+  }
 a {
   text-decoration: none !important;
 }
