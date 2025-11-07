@@ -96,14 +96,14 @@
   <% if (isValid(moto.observaciones)) { %>
     <li><strong>Observaciones:</strong> <%= moto.observaciones %></li>
   <% } %>
-
+  <% if (isValid(moto.datosAdjuntos)) { %>
+    <li><strong>Datos Adjuntos:</strong> <%= moto.datosAdjuntos %></li>
+  <% } %>
   <% if (isValid(moto.codigo)) { %>
     <li><strong>ID Artículo:</strong> <%= moto.codigo %></li>
   <% } %>
 
-  <% if (isValid(moto.idUnico)) { %>
-    <li><strong>ID Único:</strong> <%= moto.idUnico %></li>
-  <% } %>
+
 </ul>
 </ul>
         </div>
