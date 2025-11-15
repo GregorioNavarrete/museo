@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Moto</title>
+    <!-- Incluyendo Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Usando la fuente Inter que es estándar en Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4 md:p-8">
+
+    <div class="w-full max-w-4xl bg-white rounded-2xl shadow-xl p-6 md:p-10">
+        <h1 class="text-3xl font-bold text-gray-800 text-center mb-8">
+            Formulario de Registro de Moto
+        </h1>
+
+        <!-- 
+          Formulario con todos los campos del JSON.
+          Usa un grid responsivo de 2 columnas.
+        -->
+        <form action="/guardar-moto" method="POST">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+
+                <!-- Campo: codigo -->
+                <div>
+                    <label for="codigo" class="block text-sm font-medium text-gray-700 mb-1">Código</label>
+                    <input type="text" id="codigo" name="codigo" value="2" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Ej: 2">
+                </div>
+
+                <!-- Campo: nombre -->
+                <div>
+                    <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" value="Zanella T 50" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Ej: Zanella T 50">
+                </div>
+
+                <!-- Campo: año -->
+                <div>
+                    <label for="año" class="block text-sm font-medium text-gray-700 mb-1">Año</label>
+                    <input type="text" id="año" name="año" value="1978" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Ej: 1978">
+                </div>
+
+                <!-- Campo: color -->
+                <div>
+                    <label for="color" class="block text-sm font-medium text-gray-700 mb-1">Color</label>
+                    <input type="text" id="color" name="color" value="amarilla" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Ej: Amarilla">
+                </div>
+
+                <!-- Campo: origen -->
+                <div>
+                    <label for="origen" class="block text-sm font-medium text-gray-700 mb-1">Origen</label>
+                    <input type="text" id="origen" name="origen" value="" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Ej: Italia">
+                </div>
+
+                <!-- Campo: cc -->
+                <div>
+                    <label for="cc" class="block text-sm font-medium text-gray-700 mb-1">Cilindrada (CC)</label>
+                    <input type="text" id="cc" name="cc" value="48cc" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Ej: 50cc">
+                </div>
+
+                <!-- Campo: HP -->
+                <div>
+                    <label for="hp" class="block text-sm font-medium text-gray-700 mb-1">HP (Caballos de Fuerza)</label>
+                    <input type="text" id="hp" name="HP" value="2.3" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Ej: 2.3">
+                </div>
+
+                <!-- Campo: Velocidades -->
+                <div>
+                    <label for="velocidades" class="block text-sm font-medium text-gray-700 mb-1">Velocidades (Caja)</label>
+                    <input type="text" id="velocidades" name="Velocidades" value="3" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Ej: 3">
+                </div>
+
+                <!-- Campo: arranque -->
+                <div>
+                    <label for="arranque" class="block text-sm font-medium text-gray-700 mb-1">Arranque</label>
+                    <input type="text" id="arranque" name="arranque" value="" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Ej: A pedales">
+                </div>
+                
+                <!-- Campo: marchas -->
+                <div>
+                    <label for="marchas" class="block text-sm font-medium text-gray-700 mb-1">Marchas</label>
+                    <input type="text" id="marchas" name="marchas" value="" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Ej: 3">
+                </div>
+
+                <!-- Campo: rodado -->
+                <div>
+                    <label for="rodado" class="block text-sm font-medium text-gray-700 mb-1">Rodado</label>
+                    <input type="text" id="rodado" name="rodado" value="" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Ej: 16">
+                </div>
+
+                <!-- Campo: motor -->
+                <div>
+                    <label for="motor" class="block text-sm font-medium text-gray-700 mb-1">Motor</label>
+                    <input type="text" id="motor" name="motor" value="" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Ej: 2 tiempos">
+                </div>
+                
+                <!-- Campo: carburador -->
+                <div>
+                    <label for="carburador" class="block text-sm font-medium text-gray-700 mb-1">Carburador</label>
+                    <input type="text" id="carburador" name="carburador" value="dellorto 12 - 14" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Ej: Dellorto 14-14">
+                </div>
+
+                <!-- Campo: frenos -->
+                <div>
+                    <label for="frenos" class="block text-sm font-medium text-gray-700 mb-1">Frenos</label>
+                    <input type="text" id="frenos" name="frenos" value="" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Ej: A tambor">
+                </div>
+
+                <!-- Campo: embrague -->
+                <div>
+                    <label for="embrague" class="block text-sm font-medium text-gray-700 mb-1">Embrague</label>
+                    <input type="text" id="embrague" name="embrague" value="" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Ej: Centrífugo">
+                </div>
+
+                <!-- Campo: img -->
+                <div>
+                    <label for="img" class="block text-sm font-medium text-gray-700 mb-1">Imagen (Nombre de archivo)</label>
+                    <input type="text" id="img" name="img" value="2.jpg" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Ej: 2.jpg">
+                    <!-- Si quisieras subir un archivo, usarías: -->
+                    <!-- <input type="file" id="img" name="img" class="w-full p-2 border border-gray-300 rounded-lg file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"> -->
+                </div>
+
+                <!-- Campo: idUnico (Solo lectura) -->
+                <div>
+                    <label for="idUnico" class="block text-sm font-medium text-gray-700 mb-1">ID Único (Interno)</label>
+                    <input type="text" id="idUnico" name="idUnico" value="0" readonly class="w-full p-3 border border-gray-300 rounded-lg shadow-sm bg-gray-100 cursor-not-allowed">
+                </div>
+
+                <!-- Campo: activo (Checkbox) -->
+                <div class="flex items-center justify-start h-full mt-2 md:mt-7">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="activo" name="activo" value="true" checked class="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 transition duration-150">
+                        <label for="activo" class="ml-3 block text-sm font-medium text-gray-700">Activo</label>
+                    </div>
+                </div>
+
+                <!-- Campo: datosAdjuntos (Textarea) -->
+                <div class="md:col-span-2">
+                    <label for="datosAdjuntos" class="block text-sm font-medium text-gray-700 mb-1">Datos Adjuntos</label>
+                    <textarea id="datosAdjuntos" name="datosAdjuntos" rows="3" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Información adicional..."><%= "Velocidad máxima 60km/h" %></textarea>
+                </div>
+
+                <!-- Campo: observaciones (Textarea) -->
+                <div class="md:col-span-2">
+                    <label for="observaciones" class="block text-sm font-medium text-gray-700 mb-1">Observaciones</label>
+                    <textarea id="observaciones" name="observaciones" rows="3" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Observaciones..."><%= "Patricio Capriotti (Quilmes)" %></textarea>
+                </div>
+
+                <!-- Botón de Envío -->
+                <div class="md:col-span-2 mt-8">
+                    <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">
+                        Guardar Moto
+                    </button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

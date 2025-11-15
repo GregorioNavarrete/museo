@@ -21,4 +21,22 @@ router.get('/pagina_historia', (req, res) => {
     res.render('products/pagina_historia'); 
 });
 
+/*
+                    userProfile 
+    1-hay que validar con las vista de contraseña 
+    2- listados de motos y estadisticas rapidas 
+    3- fomulario de carga de motos
+    4- valdiar los fomularios 
+*/
+router.get('/userProfile', (req, res) => {
+    res.render('admin/userProfile'); 
+});
+
+// Listado de motos
+router.get('/userProfile/listado', productController.getList);
+
+// Formulario de carga de motos 
+router.get('/userProfile/Carga', productController.cargaMoto);
+
+
 module.exports = router;

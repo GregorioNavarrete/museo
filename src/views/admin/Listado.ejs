@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Listado</title>
+</head>
+<body>
+    
+    <header>
+        
+    </header>
+    
+    <main>
+        <div class="FormularioDeCarga">
+            <div class="Center">
+                <!--Buscador y lista de libros-->
+
+                <div class="SearchBox">
+
+                    <div  class="conte-titulo-form-carga">
+                        <div class="titulo-icon-form-carga">
+                        <div class="icon-form-carga"><i class="fa-solid fa-rectangle-list"></i>
+                        </div>
+        
+                        <div class="titulo-form-carga">Lista de Libros</div>
+                        </div>
+            
+
+                    <div>
+                        <!--manada a la vista de carga de libros -->
+                        <form class="SearchBox-form" action="/admin/formCargaLibro" method="GET">
+                             <button class="icon-carga-producto" submit>
+                                <i class="fa-solid fa-folder-plus"></i>
+                            </button>
+                        </form>
+
+                    </div>
+                    </div>
+
+                   
+                        <form class="lista-libros-busq" action="/admin/search" method="GET">
+                            <!--lo al buscar lo manda a la ruta -->
+                            <input class="input-text-busq" type="text" placeholder="Buscar por titulo . . ." name="search" >
+                            <button submit="" class="button-busq">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                
+
+                </div>
+
+
+                <div class="IndexList">
+                  <br>
+
+                    <!--Le tengo que poner un for con la logica EJS -->
+                <div class="Productos">
+                <% 
+                    // 1. Inicializamos el contador en 1
+                    let cont = 1;
+                    moto.forEach(moto => { 
+                %>
+                <div class="Producto">
+                    <div class="titulo-autor-producto">
+                        <div class="titulo-producto">
+                            <!-- 
+                                2. Mostramos el contador, luego el texto ") " 
+                                    y luego el nombre de la moto.
+                            -->
+                            <%= cont %>) <%= moto.nombre %>
+                        </div>
+                    </div>
+                </div>
+                <% 
+                    // Incrementamos el contador para la siguiente iteración
+                    cont++; 
+                }); 
+                %>
+                </div>
+
+
+            </div>
+
+            </div>
+
+        
+    </main>
+
+
+    <footer>
+      
+    </footer>
+
+   
+</body>
+</html>

@@ -117,9 +117,37 @@ const productController = {
     console.error('Error en productSearchJson:', error);
     res.status(500).send("Error al realizar la búsqueda");
   }
-}
-  
-///////////////////////////////////////////////Debajo estan los metodos para bbd
+},
+
+    getList: async (req, res) => {
+    try {
+      /*
+      traer el arreglo de motos y mostrarlo en la lista 
+      */
+     let moto = await productServiceJson.findAll(); 
+
+      res.render('admin/Listado', { moto });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al obtener la moto");
+    }
+  },
+
+      cargaMoto: async (req, res) => {
+    try {
+      /*
+      1-tendria que validar por servidor los campos
+      2-mostrar los corespondientes errores, sin borrar todo lo escrito antes
+      3- rediriguir 
+      */
+
+      res.render('admin/FomularioCarga');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al obtener la moto");
+    }
+  }
+///////////////////////////////////////////////Debajo estan los metodos para bbdd
   ,
   // Vista inicial o página de búsqueda: trae todos los productos
   index: async (req, res) => {
