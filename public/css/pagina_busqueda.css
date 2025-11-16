@@ -8,6 +8,8 @@
     font-family: Nunito, sans-serif;
 }
 
+/* --- ESTILOS BASE (1920x1080) --- */
+
 body {
     width: 1920px;
     height: 1080px;
@@ -71,7 +73,7 @@ body::before {
     animation-delay: 0.25s;
 }
 
-/* Título principal */
+/* Títulos */
 h1 {
     font-size: 36px;
     margin-top: 240px;
@@ -81,7 +83,6 @@ h1 {
     animation-delay: 0.4s;
 }
 
-/* Subtítulo */
 h2 {
     margin-bottom: 10px;
     color: var(--COLOR-ROJO-CLARO);
@@ -91,7 +92,6 @@ h2 {
     animation-delay: 0.5s;
 }
 
-/* Título modelos */
 h3 {
     margin-top: 30px;
     color: var(--COLOR-TEXTO-BLANCO);
@@ -114,7 +114,6 @@ h3 {
     animation-delay: 0.65s;
 }
 
-/* Barra de búsqueda */
 .barra-busqueda-header {
     width: auto;
     display: flex;
@@ -127,7 +126,15 @@ h3 {
     animation-delay: 0.7s;
 }
 
-/* Input de búsqueda */
+.contenedor-medio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Igual al gap de .barra-busqueda-header */
+    width: auto;
+}
+
 input.input-header {
     width: 480px;
     height: 40px;
@@ -143,7 +150,46 @@ input.input-header {
     animation-delay: 0.8s;
 }
 
-/* Botón de búsqueda */
+.search-box select {
+    height: 40px; 
+    padding: 0 20px; 
+    border-radius: 100px;
+    border: none;
+    font-size: 15px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: 0.8s;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.search-box select option {
+    font-size: 12px;
+    background-color: #90c6ff;
+    color: white;
+    padding: 10px;
+}
+
+.select-header {
+    width: 200px;
+    height: 40px;
+    font-size: 14px;
+    border-radius: 50px;
+    border: none;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: 0.8s;
+}
+
+.select-header option {
+    font-size: 18px;
+    color: var(--COLOR-ROJO);
+}
+
+/* Botones de búsqueda */
 .button-header {
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
@@ -164,51 +210,30 @@ input.input-header {
     animation-delay: 0.35s;
 }
 
-
-
-/* Select (si lo habilitás en el futuro) */
-.select-header {
-    width: 200px;
-    height: 40px;
-    font-size: 14px;
-    border-radius: 50px;
-    border: none;
-    text-align: center;
-    opacity: 0;
-    animation: fadeIn 0.5s ease forwards;
-    animation-delay: 0.8s;
-}
-
-
-.search-box select {
-    
-    padding: 10px;
+.btn-carga-datos {
+    padding: 10px 20px;
     border-radius: 100px;
-    border: none;
     font-size: 15px;
-    outline: none;
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    opacity: 0;
-    animation: fadeIn 0.5s ease forwards;
-    animation-delay: 0.8s;
-
-    max-height: 300px;     /* limita la altura total */
-    overflow-y: auto;       /* agrega scroll si hay muchas opciones */
+    animation: fadeIn 0.5s ease forwards 0.8s;
+    background-color: var(--COLOR-ROJO);
+    color: var(--COLOR-TEXTO-BLANCO);
+    border: 2px solid var(--COLOR-BORDE-BOTON);
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-sizing: border-box;
+    line-height: 1.2;
+    height: 40px;
+    padding: 0 20px;
+    line-height: 36px;
 }
 
-.search-box select option {
-    font-size: 12px;        /* más chico que el select */
-    background-color: #90c6ff; /* azul */
-    color: white;            /* texto blanco para contraste */
-    padding: 10px;
-}
-
-
-
-/* Opciones del select */
-.select-header option {
-    font-size: 18px;
-    color: var(--COLOR-ROJO);
+.btn-carga-datos:hover {
+    background-color: var(--COLOR-ROJO-CLARO);
+    border-color: var(--COLOR-TEXTO-BLANCO);
 }
 
 /* Sección de modelos */
@@ -220,6 +245,135 @@ input.input-header {
     color: inherit;
     margin-top: 20px;
     animation: fadeIn 0.5s ease forwards;
+}
+
+/* Popup de Contraseña */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 2000;
+}
+
+.popup-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 90vw;
+    box-sizing: border-box;
+    padding: 30px 40px;
+    background-color: rgba(0, 0, 0, 0.65);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    color: var(--COLOR-TEXTO-BLANCO);
+    text-align: center;
+}
+
+.popup-box h4 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.popup-box p {
+    font-size: 16px;
+    color: #eee;
+    margin-bottom: 25px;
+}
+
+.popup-form {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.popup-form label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #eee;
+}
+
+.popup-input {
+    width: 100%;
+    height: 40px;
+    padding: 10px 15px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--COLOR-TEXTO-BLANCO);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.popup-input:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--COLOR-ROJO-CLARO);
+    box-shadow: 0 0 10px 0 var(--COLOR-ROJO-CLARO);
+}
+
+.popup-error-msg {
+    color: var(--COLOR-ROJO-CLARO);
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 0 !important;
+    height: 16px;
+}
+
+.popup-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.popup-btn-cerrar {
+    flex: 1;
+    display: inline-block;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #444;
+    color: #ccc;
+    border-radius: 30px;
+    border: 2px solid #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.popup-btn-cerrar:hover {
+    background-color: #555;
+    border-color: var(--COLOR-TEXTO-BLANCO);
+    color: var(--COLOR-TEXTO-BLANCO);
+}
+
+.popup-btn-validar {
+    flex: 2;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: var(--COLOR-ROJO);
+    color: var(--COLOR-TEXTO-BLANCO);
+    border-radius: 30px;
+    border: 2px solid var(--COLOR-BORDE-BOTON);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.popup-btn-validar:hover {
+    background-color: var(--COLOR-ROJO-CLARO);
+    border-color: var(--COLOR-TEXTO-BLANCO);
 }
 
 /* Animaciones */
@@ -234,18 +388,18 @@ input.input-header {
 }
 
 
-
-
+/* --- RESPONSIVE PARA 4K (min-width: 2160px) --- */
 @media screen and (min-width: 2160px) and (min-height: 3840px) {
+  
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     overflow: hidden;
     font-family: Nunito, sans-serif;
-}
+  }
 
-body {
+  body {
     margin: 0;
     padding: 0;
     color: var(--COLOR-TEXTO-BLANCO);
@@ -256,9 +410,9 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     animation: fadeIn 0.5s ease forwards;
-}
+  }
 
-body::before {
+  body::before {
     content: "";
     position: fixed;
     top: 0;
@@ -273,31 +427,10 @@ body::before {
     background-repeat: no-repeat;
     z-index: -1;
     animation: fadeInFondo 0.5s ease forwards;
-}
+  }
 
-.button-header{
-    padding: 50px;
-    opacity: 0;
-    animation: fadeIn 0.5s ease forwards;
-    animation-delay: 0.25s;
-}
-
-.button-search {
-   width: 1000px;
-   height: 160px;
-   background-color: var(--COLOR-ROJO);
-   border-radius: 150px;
-   border: 10px solid var(--COLOR-BORDE-BOTON);
-   font-size: 62px;
-   font-weight: 700;
-   color: var(--COLOR-TEXTO-BLANCO);
-   cursor: pointer;
-   opacity: 0;
-   animation: fadeIn 0.5s ease forwards;
-   animation-delay: 0.35s;
-}
-
-.navbar {
+  /* Navbar 4K */
+  .navbar {
     margin-top: 0px;
     position: fixed;
     width: 100%;
@@ -313,10 +446,9 @@ body::before {
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
     animation-delay: 0.1s;
-   
-}
+  }
 
-.navbar::before {
+  .navbar::before {
     position: absolute;
     top: 0;
     left: 0;
@@ -325,9 +457,9 @@ body::before {
     background: inherit;
     filter: blur(100px);
     z-index: 0;
-}
+  }
 
-.navbar img {
+  .navbar img {
     position: relative;
     z-index: 1;
     height: 900px;
@@ -336,10 +468,10 @@ body::before {
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
     animation-delay: 0.25s;
-    
-}
+  }
 
-h1 {
+  /* Títulos 4K */
+  h1 {
    font-size: 160px;
    height: 100%;
    width: auto;
@@ -347,41 +479,52 @@ h1 {
    opacity: 0;
    animation: fadeIn 0.5s ease forwards;
    animation-delay: 0.4s;
-}
+  }
 
-h2 {
+  h2 {
     margin: 20px 0;
     color: var(--COLOR-ROJO-CLARO);
     font-size: 60px;
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
     animation-delay: 0.5s;
-}
+  }
 
-h3 {
+  h3 {
     color: var(--COLOR-TEXTO-BLANCO);
     font-size: 90px;
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
     animation-delay: 0.6s;
-}
+  }
 
-.barra-busqueda-header{
+  /* Búsqueda 4K */
+  .barra-busqueda-header{
     width: 100%;
     height: 500px;
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
     animation-delay: 0.7s;
-}
+  }
 
-input.input-header, select.select-header {
+  .contenedor-medio {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: auto;
+  }
+
+  input.input-header, select.select-header {
     height: 200px;
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
     animation-delay: 0.8s;
-}
+  }
 
-.search-box {
+  .search-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -393,9 +536,9 @@ input.input-header, select.select-header {
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
     animation-delay: 0.65s;
-}
+  }
 
-.search-box input {
+  .search-box input {
     padding: 20px;
     border-radius: 100px;
     border: none;
@@ -405,52 +548,73 @@ input.input-header, select.select-header {
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
     animation-delay: 0.8s;
-}
-
-.search-box select {
-    
-    padding: 20px;
-    border-radius: 100px;
-    border: none;
-    font-size: 62px;
-    outline: none;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    opacity: 0;
-    animation: fadeIn 0.5s ease forwards;
-    animation-delay: 0.8s;
-
-    max-height: 300px;     /* limita la altura total */
-    overflow-y: auto;       /* agrega scroll si hay muchas opciones */
-}
-
-.search-box select option {
-    font-size: 24px;        /* más chico que el select */
-    background-color: #90c6ff; /* azul */
-    color: white;            /* texto blanco para contraste */
-    padding: 10px;
-}
-
-
-.search-box input{
     text-align: center;
-}
-
-.search-box input {
     width: 70%;
     min-width: 280px;
-}
+  }
 
-.search-box select {
+  .search-box select {
+    height: 200px;
+    padding: 20px;
+    border-radius: 100px;
+    border: none;
+    font-size: 62px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: 0.8s;
+    max-height: 300px;
+    overflow-y: auto;
     width: 25%;
     min-width: 180px;
-}
+  }
 
-.search-box select option {
-    font-size: 16px; 
-    color: var(--COLOR-ROJO);
-}
+  .search-box select option {
+    font-size: 24px;
+    background-color: #90c6ff;
+    color: white;
+    padding: 10px;
+  }
 
-.models {
+  /* Botones 4K */
+  .button-header{
+    padding: 50px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: 0.25s;
+  }
+
+  .button-search {
+   width: 1000px;
+   height: 160px;
+   background-color: var(--COLOR-ROJO);
+   border-radius: 150px;
+   border: 10px solid var(--COLOR-BORDE-BOTON);
+   font-size: 62px;
+   font-weight: 700;
+   color: var(--COLOR-TEXTO-BLANCO);
+   cursor: pointer;
+   opacity: 0;
+   animation: fadeIn 0.5s ease forwards;
+   animation-delay: 0.35s;
+  }
+  
+  .btn-carga-datos {
+    height: 160px;
+    width: 550px;
+    line-height: 1.2;
+    padding: 15px;
+    border-radius: 100px;
+    font-size: 62px;
+    border-width: 10px;
+    text-align: center;
+    background-color: var(--COLOR-ROJO);
+    border-color: var(--COLOR-BORDE-BOTON);
+  }
+  
+  /* Models 4K */
+  .models {
     display: flex;
     align-items: center;
     width: 100%;
@@ -458,12 +622,48 @@ input.input-header, select.select-header {
     color: inherit;
     margin-top: 20px;
     animation: fadeIn 0.5s ease forwards;
+  }
+
+  /* Popup 4K */
+  .popup-box {
+    width: 1200px;
+    padding: 60px 80px;
+  }
+  .popup-box h4 {
+    font-size: 80px;
+  }
+  .popup-box p {
+    font-size: 45px;
+    margin-bottom: 50px;
+  }
+  .popup-form label {
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+  .popup-input {
+    height: 100px;
+    border-radius: 50px;
+    font-size: 38px;
+    padding: 0 40px;
+  }
+  .popup-error-msg {
+    font-size: 30px;
+    height: 40px;
+    margin-top: 20px;
+  }
+  .popup-buttons {
+    gap: 40px;
+  }
+  .popup-btn-cerrar, .popup-btn-validar {
+    padding: 20px;
+    font-size: 38px;
+    border-radius: 50px;
+    border-width: 4px;
+  }
 }
 
-}
 
-
-/* ✅ Responsive adicional para Smartphones 360x740 */
+/* --- RESPONSIVE PARA SMARTPHONE (max-width: 1080px) --- */
 @media screen and (max-width: 1080px) and (max-height: 1920px) {
 
   html, body {
@@ -493,6 +693,7 @@ input.input-header, select.select-header {
     z-index: -1;
   }
 
+  /* Navbar Smartphone */
   .navbar {
     width: 100%;
     height: 500px;
@@ -508,6 +709,7 @@ input.input-header, select.select-header {
     margin-bottom: 10px;
   }
 
+  /* Títulos Smartphone */
   h1 {
     font-size: 80px;
     margin-top: 500px;
@@ -521,6 +723,7 @@ input.input-header, select.select-header {
     font-size: 40px;
   }
 
+  /* Búsqueda Smartphone */
   .search-box {
     margin-top: 40px;
     height: 250px;
@@ -531,10 +734,16 @@ input.input-header, select.select-header {
     justify-content: center;
   }
 
-
   .barra-busqueda-header {
     width: 100%;
     height:250px;
+  }
+
+  .contenedor-medio{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
   }
 
   input.input-header {
@@ -544,14 +753,7 @@ input.input-header, select.select-header {
     font-size: 38px;
   }
 
-  .button-search {
-    width: 400px;
-    height: 80px;
-    font-size: 30px;
-    border-radius: 50px;
-  }
-
-.search-box select {
+  .search-box select {
     width: 350px;
     height: 80px;
     padding: 10px;
@@ -564,19 +766,16 @@ input.input-header, select.select-header {
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
     animation-delay: 0.8s;
-    max-height: 300px;     /* limita la altura total */
-    overflow-y: auto;       /* agrega scroll si hay muchas opciones */
-}
+    max-height: 300px;
+    overflow-y: auto;
+  }
 
-.search-box select option {
-    
-    font-size: 12px;        /* más chico que el select */
-    background-color: #007bff; /* azul */
-    color: white;            /* texto blanco para contraste */
+  .search-box select option {
+    font-size: 12px;
+    background-color: #007bff;
+    color: white;
     padding: 10px;
-}
-
-
+  }
 
   .select-header {
     width: 90%;
@@ -584,18 +783,40 @@ input.input-header, select.select-header {
     font-size: 14px;
   }
 
-    .models {
+  /* Botones Smartphone */
+  .button-search {
+    width: 400px;
+    height: 80px;
+    font-size: 30px;
+    border-radius: 50px;
+  }
+
+  .btn-carga-datos {
+    width: 350px;
+    height: 80px;
+    font-size: 30px;
+    border-radius: 100px;
+    padding: 10px;
+    text-align: center;
+    line-height: 60px; /* 80px alto - 20px padding (10+10) */
+  }
+
+  /* Models Smartphone */
+  .models {
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 5px;
+  }
 
-    
-    }
+  /* Popup Smartphone */
+  .popup-box {
+    width: 90vw; /* Más seguro que 500px */
+  }
 }
 
 
-/* ✅ Responsive para Smartphones pequeños (360x740) */
+/* --- RESPONSIVE PARA SMARTPHONE CHICO (max-width: 400px) --- */
 @media screen and (max-width: 400px) and (max-height: 800px) {
 
   html, body {
@@ -625,7 +846,7 @@ input.input-header, select.select-header {
     z-index: -1;
   }
 
-  /* Navbar más compacta */
+  /* Navbar Smartphone Chico */
   .navbar {
     width: 100%;
     height: 180px;
@@ -640,7 +861,7 @@ input.input-header, select.select-header {
     margin-bottom: 5px;
   }
 
-  /* Títulos reducidos */
+  /* Títulos Smartphone Chico */
   h1 {
     font-size: 26px;
     margin-top: 150px;
@@ -654,7 +875,7 @@ input.input-header, select.select-header {
     font-size: 10px;
   }
 
-  /* Caja de búsqueda más compacta */
+  /* Búsqueda Smartphone Chico */
   .search-box {
     margin-top: 20px;
     height: auto;
@@ -671,6 +892,15 @@ input.input-header, select.select-header {
     height: auto;
   }
 
+  .contenedor-medio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: auto;
+  }
+
   input.input-header {
     width: 85%;
     height: 30px;
@@ -678,14 +908,6 @@ input.input-header, select.select-header {
     border-radius: 25px;
   }
 
-  .button-search {
-    width: 200px;
-    height: 30px;
-    font-size: 10px;
-    border-radius: 25px;
-  }
-
-  /* Select reducido */
   .search-box select {
     width: 180px;
     height: 25px;
@@ -699,7 +921,27 @@ input.input-header, select.select-header {
     padding: 5px;
   }
 
-  /* Tarjetas más pequeñas */
+  /* Botones Smartphone Chico */
+  .button-search {
+    width: 200px;
+    height: 30px;
+    font-size: 10px;
+    border-radius: 25px;
+  }
+  
+
+  .btn-carga-datos {
+    width: 100px;
+    height: 25px;
+    font-size: 8px;
+    border-radius: 25px;
+    padding: 5px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 15px; /* 25px alto - 10px padding */
+  }
+
+  /* Models/Cards Smartphone Chico */
   .models {
     flex-direction: column;
     justify-content: center;
@@ -723,5 +965,39 @@ input.input-header, select.select-header {
 
   .card-text p {
     font-size: 9px;
+  }
+
+  /* Popup Smartphone Chico */
+  .popup-box {
+    width: 90vw;
+    padding: 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .popup-box h4 {
+    font-size: 20px;
+  }
+  .popup-box p {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  .popup-input {
+    height: 30px;
+    font-size: 10px;
+    border-radius: 25px;
+    padding: 0 15px;
+  }
+  .popup-buttons {
+    flex-direction: column-reverse; /* Botones apilados */
+    gap: 10px;
+  }
+  .popup-btn-cerrar, .popup-btn-validar {
+    flex: 1;
+    font-size: 12px;
+    padding: 8px;
+  }
+  .popup-error-msg {
+    font-size: 12px;
+    height: 14px;
   }
 }
