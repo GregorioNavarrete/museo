@@ -2,9 +2,11 @@ const express = require('express');
 const methodOverride = require('method-override');
 const path = require('path');
 const cors = require('cors');
+const bodyParser = require('body-parser')
 
 const indexRouter = require('./routes/index.routes');
 const indexRouterJson = require('./routes/indexjson.routes');
+
 
 const app = express();
 // const puerto = 3001;//render
@@ -20,7 +22,13 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
+//
 
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+///
 //app.use('/', indexRouter); //para consultar a la bbdd
 app.use('/', indexRouterJson);//para consultar json
 

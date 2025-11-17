@@ -146,7 +146,38 @@ const productController = {
       console.error(error);
       res.status(500).send("Error al obtener la moto");
     }
+  },
+    store: async (req, res) => {
+    try {
+      /*
+        tiene la logica para modificar el json
+      */
+        // ======================================================
+        // FORMA 1: Ver los datos en la consola (Recomendado)
+        // ======================================================
+console.log("11");
+        // 1. Muestra todos los campos de texto (inputs, textareas, etc.)
+        console.log("===== DATOS DEL FORMULARIO (req.body) =====");
+        console.log(req.body);
+
+        // 2. Si subiste un archivo con multer (upload.single()), muestra la info del archivo
+        // Si no subes archivo, req.file será 'undefined'
+        console.log("===== INFO DEL ARCHIVO (req.file) =====");
+        console.log(req.file);
+      res.render('admin/FomularioCarga');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al obtener la moto");
+    }
   }
+
+
+
+
+
+
+
+  
 ///////////////////////////////////////////////Debajo estan los metodos para bbdd
   ,
   // Vista inicial o página de búsqueda: trae todos los productos

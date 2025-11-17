@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const upload= require('../middlewares/multer');
 const productController = require('../controllers/productController');
 
 // Página inicial: muestra el “Toca para iniciar”
@@ -37,6 +38,8 @@ router.get('/userProfile/listado', productController.getList);
 
 // Formulario de carga de motos 
 router.get('/userProfile/Carga', productController.cargaMoto);
-
+// /*** crea una moto ***/ 
+// router.post('/formCarga',upload.single('portada'),validationsCreate,adminController.store); 
+router.post('/guardar-moto',upload.single('portada'),productController.store); 
 
 module.exports = router;

@@ -102,7 +102,18 @@ console.log(products.id_articulo);
             console.log(error);
             return [];
         }    
-    }
+    },
+      create: function (userData) {
+    let allUsers = this.findAll();
+    let newUser = {
+      id: uuidv4(),
+      ...userData,
+    };
+    allUsers.push(newUser);
+    fs.writeFileSync(fileName, JSON.stringify(allUsers, null, " "));
+
+    return newUser;
+  }
 }
 module.exports = productsServiceJson;
 
