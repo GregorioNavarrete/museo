@@ -149,14 +149,6 @@ const productController = {
   },
     store: async (req, res) => {
     try {
-      /*
-        tiene la logica para modificar el json
-      */
-        // ======================================================
-        // FORMA 1: Ver los datos en la consola (Recomendado)
-        // ======================================================
-console.log("11");
-        // 1. Muestra todos los campos de texto (inputs, textareas, etc.)
         console.log("===== DATOS DEL FORMULARIO (req.body) =====");
         console.log(req.body);
 
@@ -164,6 +156,7 @@ console.log("11");
         // Si no subes archivo, req.file será 'undefined'
         console.log("===== INFO DEL ARCHIVO (req.file) =====");
         console.log(req.file);
+        let moto = await productServiceJson.create(req); 
       res.render('admin/FomularioCarga');
     } catch (error) {
       console.error(error);

@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const fileName = path.resolve(__dirname, "../../datajson/moto.json");
 const fileName6 = path.resolve(__dirname, "../../datajson/6motos.json");
-
+const { v4: uuidv4 } = require("uuid");
 
 const productsServiceJson = {
     getData: async function () {
@@ -103,13 +103,64 @@ console.log(products.id_articulo);
             return [];
         }    
     },
-      create: function (userData) {
-    let allUsers = this.findAll();
+ create: async function (motoData) { // <-- CAMBIO 2: El parámetro es 'motoData' (es req.body)
+    
+    // CAMBIO 3: Usamos 'await' para esperar la promesa
+    let allUsers = await this.findAll();
+
+    // 2. Tu corrección para asegurar que sea un array (¡esto es correcto!)
+    if (!Array.isArray(allUsers)) {
+      allUsers = [];
+    }
+
+    // 3. Lógica mejorada para generar el 'idUnico' incremental
+    //    (Tu código anterior usaba req.body.idUnico, que venía como "0")
+    let maxId = 0;
+    if (allUsers.length > 0) {
+        maxId = allUsers.reduce((max, moto) => {
+            const motoId = parseInt(moto.idUnico);
+            return motoId > max ? motoId : max;
+        }, 0);
+    }
+    const newIdUnico = (maxId + 1).toString();
+
+
+    // 4. Creamos el objeto (accediendo a 'motoData' directamente)
+    //    ¡Este bloque es el que arregla que "solo guardaba el id"!
     let newUser = {
-      id: uuidv4(),
-      ...userData,
+      id: uuidv4(), // ID interno de UUID
+
+      // CAMBIO 4: Usamos 'motoData.propiedad' en lugar de 'req.body.propiedad'
+      codigo: motoData.body.codigo,
+      nombre: motoData.body.nombre,
+      ano: motoData.body.ano, // Cuidado: el log mostraba 'aÃ±o'
+      origen: motoData.body.origen,
+      cc: motoData.body.cc,
+      HP: motoData.body.HP,
+      Velocidades: motoData.body.Velocidades,
+      arranque: motoData.body.arranque,
+      marchas: motoData.body.marchas,
+      rodado: motoData.body.rodado,
+      motor: motoData.body.motor,
+      carburador: motoData.body.carburador,
+      color: motoData.body.color,
+      frenos: motoData.body.frenos,
+      embrague: motoData.body.embrague,
+      datosAdjuntos: motoData.body.datosAdjuntos,
+      observaciones: motoData.body.observaciones,
+      
+      idUnico: newIdUnico, // Asignamos el nuevo ID incremental
+      
+      activo: motoData.body.activo || "true", // Valor por defecto
+
+      // Manejo de imágenes (asumiendo que el controlador las pasó)
+      img: motoData.file.filename || (motoData.imagenes ? motoData.imagenes[0] : ''), 
+      imagenes: motoData.body.imagenes || []
     };
+    
     allUsers.push(newUser);
+    
+    // 5. Guardamos el array COMPLETO (viejos + nuevo)
     fs.writeFileSync(fileName, JSON.stringify(allUsers, null, " "));
 
     return newUser;
