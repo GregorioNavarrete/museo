@@ -31,7 +31,7 @@
           - Se agrega ?_method=PUT para method-override
           - enctype="multipart/form-data" es OBLIGATORIO para subir archivos
         -->
-        <form action="/admin/editar/<%= moto.idUnico %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <form action="/editar-moto/<%= moto.idUnico %>" method="POST" enctype="multipart/form-data">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
 
                 <!-- Campo: codigo -->
@@ -181,7 +181,7 @@
                     <button type="submit" class="flex-1 bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">
                         Actualizar Moto
                     </button>
-                    <a href="/admin/listado" class="flex-1 bg-gray-200 text-gray-800 text-center font-bold py-3 px-6 rounded-lg shadow-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition duration-200">
+                    <a href="javascript:history.back()" class="flex-1 bg-gray-200 text-gray-800 text-center font-bold py-3 px-6 rounded-lg shadow-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition duration-200">
                         Cancelar
                     </a>
                 </div>

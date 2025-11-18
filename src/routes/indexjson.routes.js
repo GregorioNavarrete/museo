@@ -49,8 +49,7 @@ router.get('/borrar-moto/:id',productController.borrar);
 
 
 // /*** softy delete***/ 
-// router.post('/formCarga',upload.single('portada'),validationsCreate,adminController.store); 
 router.get('/formularioParaEditar-moto/:id',productController.formularioParaEditar); 
-router.get('/editar-moto/',productController.edicion);
+router.post('/editar-moto/:id',upload.single('portada'),productController.edicion);
 
 module.exports = router;

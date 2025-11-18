@@ -165,7 +165,39 @@ console.log(products.id_articulo);
 
     return newUser;
   },
- borrar: async function (idUnico) {
+ borrar: async function (idUnico, req) {
+      try {
+        // 1. Obtenemos TODAS las motos (sincrónicamente)
+        let allMotos = await this.findAll();
+    
+        // 2. Buscamos el ÍNDICE de la moto que queremos borrar
+        //    Usamos findIndex para saber la posición y modificarla
+        let motoIndex = allMotos.findIndex(moto => moto.idUnico == idUnico);
+    // console.log(allMotos[motoIndex]);
+        // 3. Verificamos si la moto existe
+        if (motoIndex === -1) {
+          console.warn(`Intento de borrado fallido: No se encontró la moto con idUnico ${idUnico}`);
+          return false; // Indicamos que no se pudo borrar
+        }
+    
+        // 4. Realiza los cambios en los campos
+        //    Modificamos el objeto directamente en el array
+        allMotos[motoIndex].activo = "false"; //
+        
+        
+        // 5. Sobrescribimos el JSON con el array completo y actualizado
+        //    (La moto sigue en su posición original, pero con activo: "false")
+        fs.writeFileSync(fileName, JSON.stringify(allMotos, null, " "));
+    
+        // 6. Devolvemos la moto modificada
+        return allMotos[motoIndex];
+    
+      } catch (e) {
+        console.error("Error en la función 'borrar':", e);
+        return false; // Indicamos que hubo un error
+      }
+    },
+    Editar: async function (idUnico,motoData) {
       try {
         // 1. Obtenemos TODAS las motos (sincrónicamente)
         let allMotos = await this.findAll();
@@ -181,10 +213,32 @@ console.log(products.id_articulo);
         }
     
         // 4. Realizamos el Soft Delete: Cambiamos 'activo' a "false"
-        //    Modificamos el objeto directamente en el array
-        allMotos[motoIndex].activo = "false";
         
+        //allMotos[motoIndex].activo = "false";   podrai re activarlo
         
+        console.log(motoData.body);
+        allMotos[motoIndex].codigo=motoData.body.codigo;
+        allMotos[motoIndex].nombre=motoData.body.nombre;
+        allMotos[motoIndex].año=motoData.body.año;
+        allMotos[motoIndex].origen=motoData.body.origen;
+        allMotos[motoIndex].cc=motoData.body.cc;
+        allMotos[motoIndex].HP=motoData.body.HP;
+        allMotos[motoIndex].Velocidades=motoData.body.Velocidades;
+        allMotos[motoIndex].arranque=motoData.body.arranque;
+        allMotos[motoIndex].marchas=motoData.body.marchas;
+        allMotos[motoIndex].rodado=motoData.body.rodado;
+        allMotos[motoIndex].motor=motoData.body.motor;
+        allMotos[motoIndex].carburador=motoData.body.carburador;
+        allMotos[motoIndex].color=motoData.body.color;
+        allMotos[motoIndex].frenos=motoData.body.frenos;
+        allMotos[motoIndex].embrague=motoData.body.embrague;
+        allMotos[motoIndex].datosAdjuntos=motoData.body.datosAdjuntos;
+        allMotos[motoIndex].observaciones=motoData.body.observaciones;
+
+        //allMotos[motoIndex].img=motoData.body.observaciones;  //no modifica imagenes aun 
+ 
+  
+
         // 5. Sobrescribimos el JSON con el array completo y actualizado
         //    (La moto sigue en su posición original, pero con activo: "false")
         fs.writeFileSync(fileName, JSON.stringify(allMotos, null, " "));
