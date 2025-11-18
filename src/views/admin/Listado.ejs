@@ -311,7 +311,7 @@
                                         <a href="/admin/editar/<%= moto.idUnico %>" class="accion-link">Editar</a>
                                         
                                         <!-- Asumo que la ruta de detalle es así -->
-                                        <a href="/producto/<%= moto.idUnico %>" class="accion-link">Detalles</a>
+                                        <a href="/modelo/<%= moto.idUnico %>" class="accion-link">Detalles</a>
                                         
                                         <!-- Formulario para BORRAR (DELETE) -->
                                         <!-- <form action="/admin/borrar/<%= moto.idUnico %>?_method=DELETE" method="POST" style="margin: 0;">
@@ -329,7 +329,10 @@
                                             <%= moto.nombre %>
                                         </a>
                                         <!-- Reemplacé "autor" y "stock" por campos de tus motos -->
+                                        
                                         <span class="info-subtitulo">
+                                            Codigo: <%= moto.codigo || 'N/A' %>
+                                        </span><span class="info-subtitulo">
                                             Año: <%= moto.año || 'N/A' %>
                                         </span>
                                         <span class="info-subtitulo">
