@@ -178,7 +178,22 @@ const productController = {
       console.error(error);
       res.status(500).send("Error al obtener la moto");
     }
+  },
+     formularioParaEditar: async (req, res) => {
+    try {
+      let moto = await productServiceJson.getOne(req.params.id);
+
+      if (!moto) {
+        return res.status(404).send("Moto no encontrada");
+      }
+
+      res.render('admin/FomularioCarga', { moto });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al obtener la moto");
+    }
   }
+
 
 
 
@@ -235,7 +250,7 @@ const productController = {
         return res.status(404).send("Moto no encontrada");
       }
 
-      res.render('products/modelo', { moto });
+      res.render('admin/FormularioEdit', { moto });
     } catch (error) {
       console.error(error);
       res.status(500).send("Error al obtener la moto");
