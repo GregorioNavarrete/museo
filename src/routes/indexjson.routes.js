@@ -42,4 +42,9 @@ router.get('/userProfile/Carga', productController.cargaMoto);
 // router.post('/formCarga',upload.single('portada'),validationsCreate,adminController.store); 
 router.post('/guardar-moto',upload.single('portada'),productController.store); 
 
+
+// /*** softy delete***/ 
+// router.post('/formCarga',upload.single('portada'),validationsCreate,adminController.store); 
+router.get('/borrar-moto/:id',productController.borrar); 
+
 module.exports = router;

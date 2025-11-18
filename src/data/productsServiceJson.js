@@ -128,12 +128,12 @@ console.log(products.id_articulo);
     // 4. Creamos el objeto (accediendo a 'motoData' directamente)
     //    ¡Este bloque es el que arregla que "solo guardaba el id"!
     let newUser = {
-      id: uuidv4(), // ID interno de UUID
+      //id: uuidv4(), // ID interno de UUID
 
       // CAMBIO 4: Usamos 'motoData.propiedad' en lugar de 'req.body.propiedad'
       codigo: motoData.body.codigo,
       nombre: motoData.body.nombre,
-      ano: motoData.body.ano, // Cuidado: el log mostraba 'aÃ±o'
+      año: motoData.body.ano, // Cuidado: el log mostraba 'aÃ±o'
       origen: motoData.body.origen,
       cc: motoData.body.cc,
       HP: motoData.body.HP,
@@ -149,7 +149,7 @@ console.log(products.id_articulo);
       datosAdjuntos: motoData.body.datosAdjuntos,
       observaciones: motoData.body.observaciones,
       
-      idUnico: newIdUnico, // Asignamos el nuevo ID incremental
+      idUnico: uuidv4(), // Asignamos el nuevo ID incremental
       
       activo: motoData.body.activo || "true", // Valor por defecto
 
@@ -164,7 +164,39 @@ console.log(products.id_articulo);
     fs.writeFileSync(fileName, JSON.stringify(allUsers, null, " "));
 
     return newUser;
-  }
+  },
+ borrar: async function (idUnico) {
+      try {
+        // 1. Obtenemos TODAS las motos (sincrónicamente)
+        let allMotos = await this.findAll();
+    
+        // 2. Buscamos el ÍNDICE de la moto que queremos borrar
+        //    Usamos findIndex para saber la posición y modificarla
+        let motoIndex = allMotos.findIndex(moto => moto.idUnico == idUnico);
+    // console.log(allMotos[motoIndex]);
+        // 3. Verificamos si la moto existe
+        if (motoIndex === -1) {
+          console.warn(`Intento de borrado fallido: No se encontró la moto con idUnico ${idUnico}`);
+          return false; // Indicamos que no se pudo borrar
+        }
+    
+        // 4. Realizamos el Soft Delete: Cambiamos 'activo' a "false"
+        //    Modificamos el objeto directamente en el array
+        allMotos[motoIndex].activo = "false";
+        
+        
+        // 5. Sobrescribimos el JSON con el array completo y actualizado
+        //    (La moto sigue en su posición original, pero con activo: "false")
+        fs.writeFileSync(fileName, JSON.stringify(allMotos, null, " "));
+    
+        // 6. Devolvemos la moto modificada
+        return allMotos[motoIndex];
+    
+      } catch (e) {
+        console.error("Error en la función 'borrar':", e);
+        return false; // Indicamos que hubo un error
+      }
+    }
 }
 module.exports = productsServiceJson;
 

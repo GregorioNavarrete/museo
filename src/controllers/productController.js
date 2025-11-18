@@ -162,6 +162,22 @@ const productController = {
       console.error(error);
       res.status(500).send("Error al obtener la moto");
     }
+  },
+   borrar: async (req, res) => {
+    try {
+        console.log("parametro");
+        console.log(req.params);
+
+   
+    //  let moto = await productServiceJson.findAll(); 
+     let moto = await productServiceJson.borrar(req.params.id);
+      //res.render('admin/Listado', { moto });
+      
+      res.redirect('/userProfile/listado');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al obtener la moto");
+    }
   }
 
 
