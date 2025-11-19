@@ -309,16 +309,14 @@
         <div class="FormularioDeCarga"> <!-- Este es un contenedor general, no solo el formulario -->
             <div class="Center">
                 
-                <div class="SearchBox">
+                <!-- <div class="SearchBox">
                     <div class="conte-titulo-form-carga">
                         <div class="titulo-icon-form-carga">
                             <div class="icon-form-carga"><i class="fa-solid fa-rectangle-list"></i></div>
-                            <!-- El título ahora es 'Lista de Motos' -->
                             <div class="titulo-form-carga">Lista de Motos</div>
                         </div>
                         
                         <div>
-                            <!-- Botón para ir al formulario de carga -->
                             <form class="SearchBox-form" action="/admin/formCargaLibro" method="GET">
                                 <button class="icon-carga-producto" type="submit">
                                     <i class="fa-solid fa-folder-plus"></i>
@@ -327,14 +325,13 @@
                         </div>
                     </div>
                     
-                    <!-- Formulario de Búsqueda -->
                     <form class="lista-libros-busq" action="/admin/search" method="GET">
                         <input class="input-text-busq" type="text" placeholder="Buscar por nombre..." name="search">
                         <button type="submit" class="button-busq">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </form>
-                </div>
+                </div> -->
 
                 <!-- 4. Aquí empieza la lista de productos (motos) -->
                 <div class="IndexList">
@@ -366,7 +363,7 @@
                                     
                                     <!-- Columna Central: Información -->
                                     <div class="producto-info">
-                                        <a href="/producto/<%= moto.idUnico %>" class="info-titulo">
+                                        <a  class="info-titulo">
                                             <%= moto.nombre %>
                                         </a>
                                         <!-- Reemplacé "autor" y "stock" por campos de tus motos -->

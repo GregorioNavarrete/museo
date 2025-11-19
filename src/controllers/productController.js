@@ -135,11 +135,6 @@ const productController = {
 
       cargaMoto: async (req, res) => {
     try {
-      /*
-      1-tendria que validar por servidor los campos
-      2-mostrar los corespondientes errores, sin borrar todo lo escrito antes
-      3- rediriguir 
-      */
 
       res.render('admin/FomularioCarga');
     } catch (error) {
@@ -149,13 +144,13 @@ const productController = {
   },
     store: async (req, res) => {
     try {
-        console.log("===== DATOS DEL FORMULARIO (req.body) =====");
-        console.log(req.body);
+        // console.log("===== DATOS DEL FORMULARIO (req.body) =====");
+        // console.log(req.body);
 
         // 2. Si subiste un archivo con multer (upload.single()), muestra la info del archivo
         // Si no subes archivo, req.file será 'undefined'
-        console.log("===== INFO DEL ARCHIVO (req.file) =====");
-        console.log(req.file);
+        // console.log("===== INFO DEL ARCHIVO (req.file) =====");
+        // console.log(req.file);
         let moto = await productServiceJson.create(req); 
       res.render('admin/FomularioCarga');
     } catch (error) {
@@ -165,8 +160,8 @@ const productController = {
   },
    borrar: async (req, res) => {
     try {
-        console.log("parametro");
-        console.log(req.params);
+        // console.log("parametro");
+        // console.log(req.params);
 
    
     //  let moto = await productServiceJson.findAll(); 
@@ -199,7 +194,7 @@ const productController = {
       console.log(req.params.id);
 
       console.log("datos del fomularios ");
-      console.log(req.body);
+      console.log(req.params.id);
       let moto1 = await productServiceJson.Editar(req.params.id,req);
       let id = req.params.id;
       let moto = await productServiceJson.getOne(id);

@@ -3188,5 +3188,28 @@
   "activo": "false",
   "img": "1763507732516_img_.png",
   "imagenes": []
+ },
+ {
+  "codigo": "2",
+  "nombre": "Zanella T 50",
+  "año": "1978",
+  "origen": "dsads",
+  "cc": "48cc",
+  "HP": "2.3",
+  "Velocidades": "3",
+  "arranque": "",
+  "marchas": "",
+  "rodado": "",
+  "motor": "",
+  "carburador": "dellorto 12 - 14",
+  "color": "amarilla",
+  "frenos": "",
+  "embrague": "",
+  "datosAdjuntos": "Velocidad máxima 60km/h",
+  "observaciones": "Patricio Capriotti (Quilmes)",
+  "idUnico": "0581bf0a-8c7d-4582-a607-0794964a6405",
+  "activo": "true",
+  "img": "1763512200714_img_.png",
+  "imagenes": []
  }
 ]
