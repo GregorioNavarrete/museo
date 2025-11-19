@@ -302,7 +302,7 @@
                         <!-- 5. Este es el BUCLE EJS modificado para usar la nueva estructura de tarjeta -->
                         <% if (moto && moto.length > 0) { %>
                             <% moto.forEach(moto => { %>
-                                
+                                <% if (moto.activo === 'true') { %>
                                 <div class="Producto">
                                     
                                     <!-- Columna Izquierda: Acciones -->
@@ -352,7 +352,7 @@
                                         >
                                     </div>
                                 </div>
-                                
+                                <% } %>
                             <% }); %>
                         <% } else { %>
                             <p>No se encontraron motos para mostrar.</p>

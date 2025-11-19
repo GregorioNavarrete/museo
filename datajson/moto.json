@@ -106,7 +106,7 @@
   "datosAdjuntos": "",
   "observaciones": "Pinci (Quilmes)",
   "idUnico": "4",
-  "activo": "true",
+  "activo": "false",
   "img": ""
  },
  {
@@ -3147,7 +3147,7 @@
  },
  {
   "idUnico": "9c3f0b67-6f11-420f-98f9-7e054853fb89",
-  "activo": "true",
+  "activo": "false",
   "img": "1763421519902_img_.png",
   "imagenes": [],
   "codigo": "pppp",

@@ -29,15 +29,28 @@ router.get('/pagina_historia', (req, res) => {
     3- fomulario de carga de motos
     4- valdiar los fomularios 
 */
-router.get('/userProfile', (req, res) => {
-    res.render('admin/userProfile'); 
-});
+router.get('/userProfile', (req, res) => {res.render('admin/userProfile');});
+/*
+1-falta validar ruta
+2-boton para regresar atras
+
+*/
+
+
 
 // Listado de motos
 router.get('/userProfile/listado', productController.getList);
+/*
+    1-validar la ruta
+    2-Puede tener lista de activos y inactivos
+    3-
+    4-
+*/
+
 
 // Formulario de carga de motos 
 router.get('/userProfile/Carga', productController.cargaMoto);
+
 // /*** crea una moto ***/ 
 // router.post('/formCarga',upload.single('portada'),validationsCreate,adminController.store); 
 router.post('/guardar-moto',upload.single('portada'),productController.store); 
