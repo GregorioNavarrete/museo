@@ -127,7 +127,7 @@ const productsServiceJson = {
         // GUARDAR IMAGEN CORRECTAMENTE
         // -------------------------------
         const imgPublicPath = motoData.file
-            ? "/motos/" + motoData.file.filename
+            ?  motoData.file.filename
             : "";
 
         const newUser = {
@@ -200,7 +200,7 @@ const productsServiceJson = {
 
             // Si subieron nueva imagen
             if (motoData.file) {
-                updatedMoto.img = "/motos/" + motoData.file.filename;
+                updatedMoto.img = motoData.file.filename;
             }
 
             allMotos[motoIndex] = updatedMoto;

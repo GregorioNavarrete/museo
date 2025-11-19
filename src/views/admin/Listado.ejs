@@ -401,7 +401,7 @@ Lista de motos borradas
                                     <!-- Columna Derecha: Imagen -->
                                     <div class="producto-imagen">
                                         <img 
-                                            src="/img/motos/<%= moto.img %>" 
+                                            src="/motos/<%= moto.img && moto.img !== '' ? moto.img : 'predeterminada.png' %>" 
                                             alt="Imagen de <%= moto.nombre %>"
                                             onerror="this.src='https://placehold.co/100x100/EBF4F5/333?text=Sin+Imagen'; this.style.objectFit='contain';"
                                         >
