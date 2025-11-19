@@ -3,8 +3,8 @@ const methodOverride = require('method-override');
 const path = require('path');
 const cors = require('cors');
 
-const indexRouter = require('./routes/index.routes');
-const indexRouterJson = require('./routes/indexjson.routes');
+const indexRouter = require('./src/routes/index.routes');
+const indexRouterJson = require('./src/routes/indexjson.routes');
 
 const app = express();
 const puerto = process.env.PORT || 3001;
@@ -16,7 +16,7 @@ app.listen(puerto, () => {
 app.use(cors());
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '/views'));
+app.set('views', path.join(__dirname, '/src/views'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
