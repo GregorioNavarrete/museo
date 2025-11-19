@@ -85,7 +85,7 @@ const productController = {
         return false;
       });
 
-      let codigos = await productServiceJson.findAllCodigos();
+      let codigos = await productServiceJson.findAllCodigosActivos();
       res.render('products/pagina_busqueda', { product: busqueda, cod: codigos });
 
     } catch (error) {
