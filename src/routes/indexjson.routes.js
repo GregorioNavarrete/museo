@@ -53,6 +53,6 @@ router.get('/borrar-moto/:id', productController.borrar);
 router.get('/formularioParaEditar-moto/:id', productController.formularioParaEditar);
 
 // Procesa la edición
-router.post('/editar-moto/:id', upload.single('portada'), productController.edicion);
+router.post('/editar-moto/:id', upload.single('img'), productController.edicion);
 
 module.exports = router;
