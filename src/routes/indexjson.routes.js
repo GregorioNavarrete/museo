@@ -34,8 +34,11 @@ router.get('/userProfile', (req, res) => {
     res.render('admin/userProfile');
 });
 
-// Listado de motos
+// Listado de motos Activas
 router.get('/userProfile/listado', productController.getList);
+
+// Listado de motos borradas
+router.get('/userProfile/listadoBorradas', productController.getListMotoBorradas);
 
 // Formulario de carga de motos
 router.get('/userProfile/Carga', productController.cargaMoto);

@@ -64,17 +64,33 @@ const productsServiceJson = {
     // ------------------------------------------------------------
     // OBTENER SOLO CÓDIGOS
     // ------------------------------------------------------------
-    findAllCodigos: async function () {
+     findAllCodigosActivos: async function () {
         try {
             const data = await this.getData();
             if (!Array.isArray(data)) return [];
 
             return data
-                .filter(item => item && item.codigo && String(item.codigo).trim() !== "" && !/^null$/i.test(item.codigo))
+                .filter(item => {
+                    // 1. Validamos que el objeto exista
+                    if (!item) return false;
+
+                    // 2. LÓGICA ACTIVO:
+                    //    Se considera activa si es "true" (string o bool) 
+                    //    O si es null / undefined (datos viejos sin el campo)
+                    const valActivo = item.activo;
+                    const estaActivo = String(valActivo) === "true" || valActivo === null || valActivo === undefined;
+
+                    // (Alternativa rápida: si solo quieres excluir las borradas, podrías usar: String(item.activo) !== "false")
+
+                    // 3. Validamos que tenga un código válido
+                    const codigoValido = item.codigo && String(item.codigo).trim() !== "" && !/^null$/i.test(item.codigo);
+
+                    return estaActivo && codigoValido;
+                })
                 .map(item => String(item.codigo).trim());
 
         } catch (e) {
-            console.error("findAllCodigos error:", e);
+            console.error("findAllCodigosActivos error:", e);
             return [];
         }
     },

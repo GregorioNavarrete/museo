@@ -324,7 +324,7 @@ Regresar
 </div>
 </a>
 
-<a href="/userProfile/listadoBorradas" class="admin-list-icon-text">
+<a href="admin/ListadoInactivas" class="admin-list-icon-text">
 <div class="admin-list-icon">
 
 </div>
@@ -357,7 +357,7 @@ Lista de motos borradas
                         <!-- 5. Este es el BUCLE EJS modificado para usar la nueva estructura de tarjeta -->
                         <% if (moto && moto.length > 0) { %>
                             <% moto.forEach(moto => { %>
-                                <% if (moto.activo === 'true') { %>
+                                <% if (moto.activo === 'false') { %>
                                 <div class="Producto">
                                     
                                     <!-- Columna Izquierda: Acciones -->

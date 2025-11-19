@@ -19,7 +19,7 @@ const productController = {
 
   indexJson: async (req, res) => {
     try {
-      let codigos = await productServiceJson.findAllCodigos();
+      let codigos = await productServiceJson.findAllCodigosActivos();
       let motos6 = await productServiceJson.motos6();
       res.render('products/pagina_busqueda', { product: motos6, cod: codigos });
     } catch (error) {
@@ -98,6 +98,15 @@ const productController = {
     try {
       let moto = await productServiceJson.findAll();
       res.render('admin/Listado', { moto });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al obtener la moto");
+    }
+  },
+   getListMotoBorradas: async (req, res) => {
+    try {
+      let moto = await productServiceJson.findAll();
+      res.render('admin/ListadoInactivas', { moto });
     } catch (error) {
       console.error(error);
       res.status(500).send("Error al obtener la moto");
