@@ -10,17 +10,58 @@
     
     <!-- 2. Agregado CSS para replicar el diseño de la imagen -->
     <style>
-        :root {
-            --color-principal: #5FBABA; /* Un tono verde-azulado como el de la imagen */
-            --color-fondo: #f4f7f6;
-            --color-texto: #333;
-            --color-texto-secundario: #555;
-            --color-titulo: #D9534F; /* Un tono rojo/coral para los títulos */
-            --color-stock: #5CB85C; /* Verde para el stock */
-            --color-blanco: #ffffff;
-            --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.05);
-            --borde-radio: 12px;
-        }
+      :root {
+    /* ------------------------------------------- */
+    /* Paleta base del Museo (Blue/Red Theme)      */
+    /* ------------------------------------------- */
+    --COLOR-FONDO-NEGRO: #000000;
+    --COLOR-FONDO-BLANCO-TRASP: #ffffffb7;
+    --COLOR-FONDO-ROJO-GRADIENTE: #0081dbe0; /* Azul principal con opacidad */
+
+    --COLOR-ROJO: #0081db; /* Azul Brillante (Accent Primario) */
+    --COLOR-ROJO-CLARO: #c7eaff; /* Azul Muy Claro */
+    --COLOR-ROJO-OSC: #005a96; /* Azul Oscuro (Deep Navy) */
+
+    --COLOR-TEXTO-BLANCO: #ffffff;
+    --COLOR-TEXTO-NEGRO: #000000;
+
+    --COLOR-BORDE-BOTON: #ffffff;
+    --COLOR-BOTON-FONDO: linear-gradient(to bottom, #ffffff, #0057aa);
+
+    --COLOR-GRADIENTE-CARTA: linear-gradient(to bottom, #e4f4ff, var(--COLOR-ROJO-OSC));
+
+
+    /* ------------------------------------------- */
+    /* Variables Nuevas Mapeadas (Adaptación)      */
+    /* ------------------------------------------- */
+    
+    /* Mapeado a tu Azul Principal */
+    --color-principal: var(--COLOR-ROJO); 
+    
+    /* Mapeado al color de fondo más claro */
+    --color-fondo: var(--COLOR-ROJO-CLARO); 
+    
+    /* Mapeado a tu Negro puro para texto oscuro */
+    --color-texto: var(--COLOR-TEXTO-NEGRO);
+    
+    /* Un gris oscuro estándar para texto secundario */
+    --color-texto-secundario: #555555; 
+    
+    /* Mapeado a tu Azul Oscuro (para títulos prominentes) */
+    --color-titulo: var(--COLOR-ROJO-OSC); 
+    
+    /* Color utilitario: Verde para Stock (no existía, se mantiene el valor original) */
+    --color-stock: #5CB85C; 
+    
+    /* Mapeado a tu Blanco */
+    --color-blanco: var(--COLOR-TEXTO-BLANCO);
+    
+    /* Sombra clara adaptada para fondos oscuros */
+    --sombra-card: 0 4px 12px rgba(255, 255, 255, 0.1); 
+    
+    /* Radio de borde estándar */
+    --borde-radio: 12px;
+}
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;

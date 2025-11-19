@@ -3166,5 +3166,27 @@
   "embrague": "asdasdasd",
   "datosAdjuntos": "kkkkkkkkkkkkkkkkkkkk",
   "observaciones": "aaaaaaaaaaaaaaaaaaaa"
+ },
+ {
+  "codigo": "2025",
+  "nombre": "moto de prueba EDITADA",
+  "origen": "",
+  "cc": "48cc",
+  "HP": "2.3",
+  "Velocidades": "3",
+  "arranque": "",
+  "marchas": "",
+  "rodado": "",
+  "motor": "",
+  "carburador": "dellorto 12 - 14",
+  "color": "amarilla",
+  "frenos": "",
+  "embrague": "",
+  "datosAdjuntos": "Velocidad máxima 60km/h",
+  "observaciones": "hola",
+  "idUnico": "ba659bec-3868-4d87-b14f-4e09e081fe05",
+  "activo": "false",
+  "img": "1763507732516_img_.png",
+  "imagenes": []
  }
 ]
