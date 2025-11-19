@@ -9,221 +9,7 @@ const productController = {
 
   getAllJson: async (req, res) => {
     try {
-      
-      let motos = await productServiceJson.findAll(); 
-
-      // console.log(motos);
-      for(let i = 0; i < 2; i++){
-        console.log(motos[i]);
-      }
-      
-      //res.render('products/pagina_busqueda', { product: motos });
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Error al cargar los productos");
-    }
-  },
-  indexJson: async (req, res) => {
-    try {
-      //let motos = await productServiceJson.findAll(); // Trae todos los productos
-        //let motos = await productServiceJson.findAll() || [];
-        let codigos = await productServiceJson.findAllCodigos();
-        //console.log(codigos);
-        //let motos6 = Array.isArray(motos) ? motos.slice(0, 6) : [];
-        let motos6 = await productServiceJson.motos6();
-      res.render('products/pagina_busqueda', { product: motos6, cod: codigos });
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Error al cargar los productos");
-    }
-  },
-    getOneJson: async (req, res) => {
-    try {
-      let id = req.params.id;
-      console.log("ID recibido:", id);
-
-      let moto = await productServiceJson.getOne(id);
-
-      if (!moto) {
-        return res.status(404).send("Moto no encontrada");
-      }
-
-      res.render('products/modelo', { moto });
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Error al obtener la moto");
-    }
-  },
- productSearchJson: async (req, res) => {
-  try {
-    // Normalizar entradas
-    const campoRaw = req.query.campo;
-    const campo = campoRaw && String(campoRaw).trim() !== '' ? String(campoRaw).trim() : 'codigo';
-
-    const searchRaw = String(req.query.search || '').trim();      // término de búsqueda (puede estar vacío)
-    const termino = searchRaw.toLowerCase();                      // usado para comparación case-insensitive
-
-    const valorRaw = req.query.valorDispo === undefined ? '' : String(req.query.valorDispo).trim();
-    const valorLower = valorRaw.toLowerCase();
-
-    // Flags claros
-    const hasSearch = searchRaw !== '';
-    const hasValor = valorRaw !== '' && valorLower !== 'null';    // valor útil si no está vacío ni es "null"
-    const valorIsNullString = valorLower === 'null';
-
-    // Traer todos los productos
-    const allProducts = await productServiceJson.findAll();
-    const arr = Array.isArray(allProducts) ? allProducts : [];
-
-    // Filtrar según reglas
-    const busqueda = arr.filter(p => {
-      if (!p) return false;
-
-      // --- filtro de 'activo' robusto ---
-      // Si el campo activo está definido y explicitamente NO es "true", lo excluye.
-      if (p.activo === false) return false;
-      if (typeof p.activo === 'string' && p.activo.trim().toLowerCase() !== 'true') return false;
-      // si p.activo es undefined -> lo dejamos pasar (asumimos activo por defecto)
-
-      // Si hay search -> PRIORIDAD: buscar por campo con includes (case-insensitive)
-      if (hasSearch) {
-        const campoVal = String(p[campo] || '').trim().toLowerCase();
-        // includes para que "zanella" encuentre "Zanella T 50"
-        return campoVal==termino;
-      }
-
-      // Si NO hay search pero valorDispo es útil (y no es "null") -> buscar por codigo exacto
-      if (hasValor) {
-        const codigo = String(p.codigo || '').trim();
-        return codigo === valorRaw;
-      }
-
-      // Si valorDispo es exactamente "null" y no hay search -> según lo pedido, buscar por search (pero no hay),
-      // por lo tanto no hay coincidencias -> devolver false.
-      if (valorIsNullString) {
-        return false;
-      }
-
-      // Ningún criterio válido -> no incluir
-      return false;
-    });
-
-    // Obtener lista de codigos para la vista (la función ya existente)
-    let codigos = await productServiceJson.findAllCodigos();
-
-    // Renderizar (mantengo 'cod' como variable en la vista, como tenías)
-    res.render('products/pagina_busqueda', { product: busqueda, cod: codigos });
-  } catch (error) {
-    console.error('Error en productSearchJson:', error);
-    res.status(500).send("Error al realizar la búsqueda");
-  }
-},
-
-    getList: async (req, res) => {
-    try {
-      /*
-      traer el arreglo de motos y mostrarlo en la lista 
-      */
-     let moto = await productServiceJson.findAll(); 
-
-      res.render('admin/Listado', { moto });
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Error al obtener la moto");
-    }
-  },
-
-      cargaMoto: async (req, res) => {
-    try {
-
-      res.render('admin/FomularioCarga');
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Error al obtener la moto");
-    }
-  },
-    store: async (req, res) => {
-    try {
-        // console.log("===== DATOS DEL FORMULARIO (req.body) =====");
-        // console.log(req.body);
-
-        // 2. Si subiste un archivo con multer (upload.single()), muestra la info del archivo
-        // Si no subes archivo, req.file será 'undefined'
-        // console.log("===== INFO DEL ARCHIVO (req.file) =====");
-        // console.log(req.file);
-        let moto = await productServiceJson.create(req); 
-      res.render('admin/FomularioCarga');
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Error al obtener la moto");
-    }
-  },
-   borrar: async (req, res) => {
-    try {
-        // console.log("parametro");
-        // console.log(req.params);
-
-   
-    //  let moto = await productServiceJson.findAll(); 
-     let moto = await productServiceJson.borrar(req.params.id);
-      //res.render('admin/Listado', { moto });
-      
-      res.redirect('/userProfile/listado');
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Error al obtener la moto");
-    }
-  },
-     formularioParaEditar: async (req, res) => {
-    try {
-      let moto = await productServiceJson.getOne(req.params.id);
-
-      if (!moto) {
-        return res.status(404).send("Moto no encontrada");
-      }
-      console.log(moto);
-      res.render('admin/FormularioEdit', { moto });
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Error al obtener la moto");
-    }
-  },
-      edicion: async (req, res) => {
-    try {
-      console.log("idunico de la moto ");
-      console.log(req.params.id);
-
-      console.log("datos del fomularios ");
-      console.log(req.params.id);
-      let moto1 = await productServiceJson.Editar(req.params.id,req);
-      let id = req.params.id;
-      let moto = await productServiceJson.getOne(id);
-
-      if (!moto) {
-        return res.status(404).send("Moto no encontrada");
-      }
-      res.render('products/modelo', { moto });
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Error al obtener la moto");
-    }
-  }
-
-
-
-
-
-
-
-
-  
-///////////////////////////////////////////////Debajo estan los metodos para bbdd
-  ,
-  // Vista inicial o página de búsqueda: trae todos los productos
-  index: async (req, res) => {
-    try {
-      console.log("Estoy en vista principal / página de búsqueda");
-      let motos = await productService.getAll(); // Trae todos los productos
+      let motos = await productServiceJson.findAll();
       res.render('products/pagina_busqueda', { product: motos });
     } catch (error) {
       console.error(error);
@@ -231,18 +17,174 @@ const productController = {
     }
   },
 
-  // Búsqueda filtrada por término y campo
+  indexJson: async (req, res) => {
+    try {
+      let codigos = await productServiceJson.findAllCodigos();
+      let motos6 = await productServiceJson.motos6();
+      res.render('products/pagina_busqueda', { product: motos6, cod: codigos });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al cargar los productos");
+    }
+  },
+
+  getOneJson: async (req, res) => {
+    try {
+      let id = req.params.id;
+      let moto = await productServiceJson.getOne(id);
+
+      if (!moto) {
+        return res.status(404).send("Moto no encontrada");
+      }
+
+      res.render('products/modelo', { moto });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al obtener la moto");
+    }
+  },
+
+  productSearchJson: async (req, res) => {
+    try {
+      const campoRaw = req.query.campo;
+      const campo = campoRaw && campoRaw.trim() !== '' ? campoRaw.trim() : 'codigo';
+
+      const searchRaw = String(req.query.search || '').trim();
+      const termino = searchRaw.toLowerCase();
+
+      const valorRaw = req.query.valorDispo === undefined ? '' : String(req.query.valorDispo).trim();
+      const valorLower = valorRaw.toLowerCase();
+
+      const hasSearch = searchRaw !== '';
+      const hasValor = valorRaw !== '' && valorLower !== 'null';
+      const valorIsNullString = valorLower === 'null';
+
+      const allProducts = await productServiceJson.findAll();
+      const arr = Array.isArray(allProducts) ? allProducts : [];
+
+      const busqueda = arr.filter(p => {
+        if (!p) return false;
+
+        if (p.activo === false) return false;
+        if (typeof p.activo === 'string' && p.activo.trim().toLowerCase() !== 'true') return false;
+
+        if (hasSearch) {
+          const campoVal = String(p[campo] || '').trim().toLowerCase();
+          return campoVal.includes(termino);  // ← supports partial match
+        }
+
+        if (hasValor) {
+          const codigo = String(p.codigo || '').trim();
+          return codigo === valorRaw;
+        }
+
+        if (valorIsNullString) {
+          return false;
+        }
+
+        return false;
+      });
+
+      let codigos = await productServiceJson.findAllCodigos();
+      res.render('products/pagina_busqueda', { product: busqueda, cod: codigos });
+
+    } catch (error) {
+      console.error('Error en productSearchJson:', error);
+      res.status(500).send("Error al realizar la búsqueda");
+    }
+  },
+
+  getList: async (req, res) => {
+    try {
+      let moto = await productServiceJson.findAll();
+      res.render('admin/Listado', { moto });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al obtener la moto");
+    }
+  },
+
+  cargaMoto: async (req, res) => {
+    try {
+      res.render('admin/FomularioCarga');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al obtener la moto");
+    }
+  },
+
+  store: async (req, res) => {
+    try {
+      await productServiceJson.create(req);
+      res.render('admin/FomularioCarga');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al guardar la moto");
+    }
+  },
+
+  borrar: async (req, res) => {
+    try {
+      await productServiceJson.borrar(req.params.id, req);  // ← FIX IMPORTANTE
+      res.redirect('/userProfile/listado');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al borrar la moto");
+    }
+  },
+
+  formularioParaEditar: async (req, res) => {
+    try {
+      let moto = await productServiceJson.getOne(req.params.id);
+
+      if (!moto) {
+        return res.status(404).send("Moto no encontrada");
+      }
+
+      res.render('admin/FormularioEdit', { moto });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al obtener la moto");
+    }
+  },
+
+  edicion: async (req, res) => {
+    try {
+      await productServiceJson.Editar(req.params.id, req);
+      let moto = await productServiceJson.getOne(req.params.id);
+
+      if (!moto) {
+        return res.status(404).send("Moto no encontrada");
+      }
+
+      res.render('products/modelo', { moto });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al editar la moto");
+    }
+  },
+
+  /////////////////////////////////////////////// Métodos para BBDD
+
+  index: async (req, res) => {
+    try {
+      let motos = await productService.getAll();
+      res.render('products/pagina_busqueda', { product: motos });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Error al cargar los productos");
+    }
+  },
+
   productSearch: async (req, res) => {
     try {
       const termino = req.query.search ? req.query.search.toLowerCase() : '';
-      const campo = req.query.campo || 'modelo'; // Por defecto filtra por modelo
+      const campo = req.query.campo || 'modelo';
 
-      // Traer todos los productos
       let allProducts = await productService.getAll();
 
-      // Filtrar productos según término y campo
       let busqueda = allProducts.filter(p => {
-        if (!p.dataValues[campo]) return false; // Evita errores si no existe el campo
+        if (!p.dataValues[campo]) return false;
         return p.dataValues[campo].toLowerCase().includes(termino);
       });
 
@@ -253,12 +195,9 @@ const productController = {
     }
   },
 
-  // Obtener un solo producto y mostrarlo en modelo.ejs
   getOne: async (req, res) => {
     try {
       let id = req.params.id;
-      console.log("ID recibido:", id);
-
       let moto = await productService.getOne(id);
 
       if (!moto) {
