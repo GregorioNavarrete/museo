@@ -22,6 +22,10 @@
 </div>
 <body>
 
+<!-- 
+  ❌ BOTÓN MOVIDO
+  (Ya no está acá)
+-->
 
 <!-- Navbar -->
 <div class="navbar" id="navbar">
@@ -46,12 +50,23 @@
                 <option value="marca">Marca</option>
                 <option value="rodado">Rodado</option>
             </select> -->
-  <select id="111" name="valorDispo" class="codigo-select" aria-label="Seleccionar código">
-        <option value="null">Disponibles</option>
-     <% for(let i = 0; i < cod.length; i++) { %>
-        <option value="<%= cod[i]%>"><%= cod[i] %></option>
-    <% } %>
-  </select>
+
+            <div class="contenedor-medio">
+                <select id="111" name="valorDispo" class="codigo-select" aria-label="Seleccionar código">
+                <option value="null">Disponibles</option>
+                <% for(let i = 0; i < cod.length; i++) { %>
+                <option value="<%= cod[i]%>"><%= cod[i] %></option>
+                <% } %>
+            </select>
+            
+            <!-- 
+              ✅ CAMBIO: BOTÓN DE "CARGA DE DATOS" MOVIDO ACÁ 
+              Está adentro del form, junto a los otros campos de búsqueda.
+            -->
+            <a href="#" id="btn-carga-datos" class="btn-carga-datos">Carga de Datos</a>
+            </div>
+            
+
             <div class="button-header">
                 <button class="button-search" type="submit">
                     <i class="fa-solid fa-magnifying-glass"></i> ¡Iniciá la Busqueda!
@@ -76,6 +91,85 @@
         <% } %>
     </div>
 </div>
+
+<!-- 
+  POPUP DE CONTRASEÑA (Sin cambios)
+-->
+<div class="popup-overlay" id="popup-overlay">
+  <div class="popup-box">
+      <h4>Acceso de Administrador</h4>
+      <p>Ingresá la contraseña para acceder a la carga de datos.</p>
+      
+      <div class="popup-form">
+          <label for="popup-password">Contraseña:</label>
+          <input type="password" id="popup-password" class="popup-input">
+          <p id="popup-error" class="popup-error-msg"></p>
+      </div>
+      
+      <div class="popup-buttons">
+          <button type="button" id="btn-cerrar-popup" class="popup-btn-cerrar">Cerrar</button>
+          <button type="button" id="btn-validar-popup" class="popup-btn-validar">Validar</button>
+      </div>
+  </div>
+</div>
+
+<!-- 
+  SCRIPT (Sin cambios)
+-->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      // Elementos
+      const btnCarga = document.getElementById('btn-carga-datos');
+      const popupOverlay = document.getElementById('popup-overlay');
+      const btnCerrar = document.getElementById('btn-cerrar-popup');
+      const btnValidar = document.getElementById('btn-validar-popup');
+      const inputPass = document.getElementById('popup-password');
+      const errorMsg = document.getElementById('popup-error');
+
+      // Abrir popup
+      btnCarga.addEventListener('click', (e) => {
+          e.preventDefault(); // Evita que el <a> navegue
+          popupOverlay.style.display = 'block';
+          inputPass.focus();
+      });
+
+      // Cerrar popup (con botón o clickeando afuera)
+      function cerrarPopup() {
+          popupOverlay.style.display = 'none';
+          inputPass.value = ''; // Limpia la contraseña
+          errorMsg.textContent = ''; // Limpia el error
+      }
+
+      btnCerrar.addEventListener('click', cerrarPopup);
+      popupOverlay.addEventListener('click', (e) => {
+          // Si clickea en el fondo gris (overlay) y no en la caja (box)
+          if (e.target === popupOverlay) {
+              cerrarPopup();
+          }
+      });
+
+      // Validar contraseña
+      btnValidar.addEventListener('click', () => {
+          const pass = inputPass.value;
+          if (pass === '123') {
+              // ¡Correcto! Redireccionamos al formulario
+              // (Asumo que esta es la ruta de tu formulario de carga)
+              window.location.href = '/userProfile'; 
+          } else {
+              // Error
+              errorMsg.textContent = 'Contraseña incorrecta. Intentá de nuevo.';
+              inputPass.focus();
+          }
+      });
+
+      // También valida con "Enter"
+      inputPass.addEventListener('keyup', (e) => {
+          if (e.key === 'Enter') {
+              btnValidar.click();
+          }
+      });
+  });
+</script>
 
 </body>
 </html>

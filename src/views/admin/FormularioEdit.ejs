@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Moto</title>
+    <!-- Incluyendo Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4 md:p-8">
+
+    <div class="w-full max-w-4xl bg-white rounded-2xl shadow-xl p-6 md:p-10">
+        
+        <!-- El título usa el nombre de la moto -->
+        <h1 class="text-3xl font-bold text-gray-800 text-center mb-2">
+            Editar Moto
+        </h1>
+        <h2 class="text-xl font-medium text-blue-600 text-center mb-8">
+            <%= moto.nombre %>
+        </h2>
+
+        <!-- 
+          Formulario para EDITAR:
+          - method="POST"
+          - action apunta a la ruta de edición con el ID de la moto
+          - Se agrega ?_method=PUT para method-override
+          - enctype="multipart/form-data" es OBLIGATORIO para subir archivos
+        -->
+        <form action="/editar-moto/<%= moto.idUnico %>" method="POST" enctype="multipart/form-data">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+
+                <!-- Campo: codigo -->
+                <div>
+                    <label for="codigo" class="block text-sm font-medium text-gray-700 mb-1">Código</label>
+                    <input type="text" id="codigo" name="codigo" value="<%= moto.codigo %>" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+
+                <!-- Campo: nombre -->
+                <div>
+                    <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" value="<%= moto.nombre %>" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+
+                <!-- Campo: año -->
+                <div>
+                    <label for="año" class="block text-sm font-medium text-gray-700 mb-1">Año</label>
+                    <input type="text" id="año" name="año" value="<%= moto.año %>" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+
+                <!-- Campo: color -->
+                <div>
+                    <label for="color" class="block text-sm font-medium text-gray-700 mb-1">Color</label>
+                    <input type="text" id="color" name="color" value="<%= moto.color %>" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+
+                <!-- Campo: origen -->
+                <div>
+                    <label for="origen" class="block text-sm font-medium text-gray-700 mb-1">Origen</label>
+                    <input type="text" id="origen" name="origen" value="<%= moto.origen %>" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+
+                <!-- Campo: cc -->
+                <div>
+                    <label for="cc" class="block text-sm font-medium text-gray-700 mb-1">Cilindrada (CC)</label>
+                    <input type="text" id="cc" name="cc" value="<%= moto.cc %>" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+
+                <!-- Campo: HP -->
+                <div>
+                    <label for="hp" class="block text-sm font-medium text-gray-700 mb-1">HP (Caballos de Fuerza)</label>
+                    <input type="text" id="hp" name="HP" value="<%= moto.HP %>" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+
+                <!-- Campo: Velocidades -->
+                <div>
+                    <label for="velocidades" class="block text-sm font-medium text-gray-700 mb-1">Velocidades (Caja)</label>
+                    <input type="text" id="velocidades" name="Velocidades" value="<%= moto.Velocidades %>" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+
+                <!-- Campo: arranque -->
+                <div>
+                    <label for="arranque" class="block text-sm font-medium text-gray-700 mb-1">Arranque</label>
+                    <input type="text" id="arranque" name="arranque" value="<%= moto.arranque %>" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+                
+                <!-- Campo: marchas -->
+                <div>
+                    <label for="marchas" class="block text-sm font-medium text-gray-700 mb-1">Marchas</label>
+                    <input type="text" id="marchas" name="marchas" value="<%= moto.marchas %>" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+
+                <!-- Campo: rodado -->
+                <div>
+                    <label for="rodado" class="block text-sm font-medium text-gray-700 mb-1">Rodado</label>
+                    <input type="text" id="rodado" name="rodado" value="<%= moto.rodado %>" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+
+                <!-- Campo: motor -->
+                <div>
+                    <label for="motor" class="block text-sm font-medium text-gray-700 mb-1">Motor</label>
+                    <input type="text" id="motor" name="motor" value="<%= moto.motor %>" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+                
+                <!-- Campo: carburador -->
+                <div>
+                    <label for="carburador" class="block text-sm font-medium text-gray-700 mb-1">Carburador</label>
+                    <input type="text" id="carburador" name="carburador" value="<%= moto.carburador %>" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+
+                <!-- Campo: frenos -->
+                <div>
+                    <label for="frenos" class="block text-sm font-medium text-gray-700 mb-1">Frenos</label>
+                    <input type="text" id="frenos" name="frenos" value="<%= moto.frenos %>" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+
+                <!-- Campo: embrague -->
+                <div>
+                    <label for="embrague" class="block text-sm font-medium text-gray-700 mb-1">Embrague</label>
+                    <input type="text" id="embrague" name="embrague" value="<%= moto.embrague %>" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150">
+                </div>
+
+                <!-- Campo: idUnico (Solo lectura) -->
+                <div>
+                    <label for="idUnico" class="block text-sm font-medium text-gray-700 mb-1">ID Único (Interno)</label>
+                    <input type="text" id="idUnico" name="idUnico" value="<%= moto.idUnico %>" readonly class="w-full p-3 border border-gray-300 rounded-lg shadow-sm bg-gray-100 cursor-not-allowed">
+                </div>
+
+                <!-- Campo: Imagen -->
+            
+                <div class="md:col-span-2">
+                    <label for="img" class="block text-sm font-medium text-gray-700 mb-1">Imagen (".jpg", ".jpeg", ".png")</label>
+                    <div class="flex items-center gap-4">
+                        <img 
+                            src="/img/portadas/<%= moto.img %>" 
+                            alt="Imagen actual de <%= moto.nombre %>"
+                            class="w-20 h-20 object-cover rounded-lg border border-gray-200"
+                            onerror="this.src='https://placehold.co/80x80/EBF4F5/333?text=Sin+Imagen'; this.style.objectFit='contain';"
+                        >
+                        <div class="flex-grow">
+                            <input type="file" id="img" name="img" class="w-full p-2 border border-gray-300 rounded-lg file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition duration-150">
+                            <span class="text-xs text-gray-500 mt-1 block">Dejar en blanco para conservar la imagen actual.</span>
+                        </div>
+                    </div>
+                     <!-- NOTA: Tu servicio 'create' maneja 'imagenes' (plural). Si tu servicio 'update'
+                         también espera un array, deberás cambiar name="img" por name="imagenes" y
+                         agregar el atributo 'multiple' al input de arriba.
+                    -->
+                </div>
+
+                <!-- Campo: activo (Checkbox) -->
+                <div class="md:col-span-2 flex items-center justify-start h-full mt-2">
+                    <div class="flex items-center">
+                        <!-- 
+                            Lógica EJS para marcar el checkbox si 'activo' es "true"
+                        -->
+                        <input type="checkbox" id="activo" name="activo" value="true" 
+                            <%= (moto.activo === "true" || moto.activo === true) ? "checked" : "" %> 
+                            class="h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 transition duration-150">
+                        <label for="activo" class="ml-3 block text-sm font-medium text-gray-700">Activo</label>
+                    </div>
+                </div>
+
+                <!-- Campo: datosAdjuntos (Textarea) -->
+                <div class="md:col-span-2">
+                    <label for="datosAdjuntos" class="block text-sm font-medium text-gray-700 mb-1">Datos Adjuntos</label>
+                    <textarea id="datosAdjuntos" name="datosAdjuntos" rows="3" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Información adicional..."><%= moto.datosAdjuntos %></textarea>
+                </div>
+
+                <!-- Campo: observaciones (Textarea) -->
+                <div class="md:col-span-2">
+                    <label for="observaciones" class="block text-sm font-medium text-gray-700 mb-1">Observaciones</label>
+                    <textarea id="observaciones" name="observaciones" rows="3" class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 transition duration-150" placeholder="Observaciones..."><%= moto.observaciones %></textarea>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="md:col-span-2 mt-8 flex gap-4">
+                    <button type="submit" class="flex-1 bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">
+                        Actualizar Moto
+                    </button>
+                    <a href="javascript:history.back()" class="flex-1 bg-gray-200 text-gray-800 text-center font-bold py-3 px-6 rounded-lg shadow-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition duration-200">
+                        Cancelar
+                    </a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

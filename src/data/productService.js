@@ -7,7 +7,6 @@ const fs = require('fs');
 const path = require('path');
 //const upload = require('../middlewares/multer');
 
-
 const productService = {
     getAll: async function (){
         try {
@@ -18,43 +17,46 @@ const productService = {
             return [];
         }    
     },
-search: async function(req) {
-  try {
-    //es un filtro por modelo por defecto
-    // si indica el campo a filtrar, son 5 campos diferentes
-    //podria tener un error si no indica el campo
-    let allMotos = await this.getAll();
-    let searchText = req.query.search?.toLowerCase() || "";
-    let campo = req.query.campo || "modelo";
 
-    return allMotos.filter(moto => {
-      let valorCampo = moto[campo]?.toString().toLowerCase();
-      return valorCampo?.includes(searchText);
-    });
-  } catch (error) {
-    console.log(error);
-  }
-},
+    search: async function(req) {
+      try {
+        //es un filtro por modelo por defecto
+        // si indica el campo a filtrar, son 5 campos diferentes
+        //podria tener un error si no indica el campo
+        let allMotos = await this.getAll();
+        let searchText = req.query.search?.toLowerCase() || "";
+        let campo = req.query.campo || "modelo";
+
+        return allMotos.filter(moto => {
+          let valorCampo = moto[campo]?.toString().toLowerCase();
+          return valorCampo?.includes(searchText);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     getOne: async function (id){
         try {
             let products = await this.getAll();
            
-           product = products.find((elem)=>elem.id_articulo == id);
-console.log(products.id_articulo);
-           if(!product){
-                // si el no se encuantra el "id" en el arreglo, lo entrgamos bacio al obj
-                
+            // FIX 1 → faltaba declarar product
+            // FIX 2 → tu código tenía un console.log(products.id_articulo) que fallaba
+            let product = products.find((elem)=> elem.id_articulo == id);
+
+            if(!product){
+                // si no se encuentra el "id" en el arreglo, devolvemos obj vacío
                 product = {};
-           }
+            }
+
             return product;
             
         } catch (error) {
             //para q al menos no se rompa la vista
-            //mandar un mensaje de error
             console.log(error);
             return [];
         }    
     }
 }
-module.exports = productService;
 
+module.exports = productService;

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Moto</title>
+    
+    <link rel="stylesheet" href="paleta_colores.css">
+    
+    <!-- Esta es la ruta que vos tenías -->
+    <link rel="stylesheet" href="/css/FormularioCarga.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Formulario de Registro de Moto</h1>
+
+        <!-- 
+          CAMBIO 1: Agregué enctype="multipart/form-data" 
+          ¡Sin esto no se suben los archivos!
+        -->
+        <form action="/guardar-moto" method="POST" class="form-grid" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="codigo">Código</label>
+                <input type="text" id="codigo" name="codigo" value="2" placeholder="Ej: 2">
+            </div>
+
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" value="Zanella T 50" placeholder="Ej: Zanella T 50">
+            </div>
+
+            <div class="form-group">
+                <label for="año">Año</label>
+                <input type="text" id="ano" name="ano" value="1978" placeholder="Ej: 1978">
+            </div>
+
+            <div class="form-group">
+                <label for="color">Color</label>
+                <input type="text" id="color" name="color" value="amarilla" placeholder="Ej: Amarilla">
+            </div>
+
+            <div class="form-group">
+                <label for="origen">Origen</label>
+                <input type="text" id="origen" name="origen" value="" placeholder="Ej: Italia">
+            </div>
+
+            <div class="form-group">
+                <label for="cc">Cilindrada (CC)</label>
+                <input type="text" id="cc" name="cc" value="48cc" placeholder="Ej: 50cc">
+            </div>
+
+            <div class="form-group">
+                <label for="hp">HP (Caballos de Fuerza)</label>
+                <input type="text" id="HP" name="HP" value="2.3" placeholder="Ej: 2.3">
+            </div>
+
+            <div class="form-group">
+                <label for="velocidades">Velocidades (Caja)</label>
+                <input type="text" id="velocidades" name="Velocidades" value="3" placeholder="Ej: 3">
+            </div>
+
+            <div class="form-group">
+                <label for="arranque">Arranque</label>
+                <input type="text" id="arranque" name="arranque" value="" placeholder="Ej: A pedales">
+            </div>
+            
+            <div class="form-group">
+                <label for="marchas">Marchas</label>
+                <input type="text" id="marchas" name="marchas" value="" placeholder="Ej: 3">
+            </div>
+
+            <div class="form-group">
+                <label for="rodado">Rodado</label>
+                <input type="text" id="rodado" name="rodado" value="" placeholder="Ej: 16">
+            </div>
+
+            <div class="form-group">
+                <label for="motor">Motor</label>
+                <input type="text" id="motor" name="motor" value="" placeholder="Ej: 2 tiempos">
+            </div>
+            
+            <div class="form-group">
+                <label for="carburador">Carburador</label>
+                <input type="text" id="carburador" name="carburador" value="dellorto 12 - 14" placeholder="Ej: Dellorto 14-14">
+            </div>
+
+            <div class="form-group">
+                <label for="frenos">Frenos</label>
+                <input type="text" id="frenos" name="frenos" value="" placeholder="Ej: A tambor">
+            </div>
+
+            <div class="form-group">
+                <label for="embrague">Embrague</label>
+                <input type="text" id="embrague" name="embrague" value="" placeholder="Ej: Centrífugo">
+            </div>
+
+            <!-- 
+              CAMBIO 2: Reemplacé el campo de texto 'img' por este bloque 
+            -->
+            <div class="form-group span-2">
+                <label for="input-imagenes">Imágenes de la Moto</label>
+                                        <input  class="input-text"  type="file" id="portada" name="portada" accept=".jpg, .jpeg, .png, .gif" >
+
+                <!-- Este es el input real, pero lo escondemos con CSS -->
+                <!-- <input 
+                    type="file" 
+                    id="input-imagenes" 
+                    name="imagenes" 
+                    multiple 
+                    accept="image/*"
+                > -->
+                
+                <!-- Este es el botón (label) que el usuario ve -->
+                <label for="input-imagenes" class="btn-file-upload">
+                     Seleccionar Imágenes...
+                </label>
+                
+                <!-- Acá vamos a mostrar los nombres de los archivos seleccionados -->
+                <div id="preview-imagenes">
+                    <span class="preview-placeholder">No se seleccionaron archivos.</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="idUnico">ID Único (Interno)</label>
+                <input type="text" id="idUnico" name="idUnico" value="0" readonly>
+            </div>
+
+            <div class="form-group form-group-checkbox">
+                <input type="checkbox" id="activo" name="activo" value="true" checked>
+                <label for="activo" class="label-checkbox">Activo</label>
+            </div>
+
+            <div class="form-group span-2">
+                <label for="datosAdjuntos">Datos Adjuntos</label>
+                <textarea id="datosAdjuntos" name="datosAdjuntos" rows="3" placeholder="Información adicional..."><%= "Velocidad máxima 60km/h" %></textarea>
+            </div>
+
+            <div class="form-group span-2">
+                <label for="observaciones">Observaciones</label>
+                <textarea id="observaciones" name="observaciones" rows="3" placeholder="Observaciones..."><%= "Patricio Capriotti (Quilmes)" %></textarea>
+            </div>
+
+            <!-- 
+              ✅ CAMBIO: Agregado el botón "ATRAS" 
+              y un div para agruparlos
+            -->
+            <div class="form-group span-2 button-group">
+                <a href="javascript:history.back()" class="btn-atras">ATRAS</a>
+                <button type="submit">Guardar Moto</button>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- 
+      CAMBIO 3: Agregué este script para que la vista previa de nombres funcione 
+    -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputImagenes = document.getElementById('input-imagenes');
+            const previewContainer = document.getElementById('preview-imagenes');
+            
+            inputImagenes.addEventListener('change', () => {
+                // Limpiamos la vista previa
+                const placeholder = previewContainer.querySelector('.preview-placeholder');
+                if (placeholder) {
+                    placeholder.remove();
+                }
+                previewContainer.innerHTML = ''; // Limpia items anteriores
+
+                if (inputImagenes.files.length > 0) {
+                    // Si hay archivos, los listamos
+                    Array.from(inputImagenes.files).forEach(file => {
+                        const fileItem = document.createElement('span');
+                        fileItem.className = 'preview-item';
+                        fileItem.textContent = file.name;
+                        previewContainer.appendChild(fileItem);
+                    });
+                } else {
+                    // Si no hay, mostramos el placeholder original
+                    previewContainer.innerHTML = '<span class="preview-placeholder">No se seleccionaron archivos.</span>';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
