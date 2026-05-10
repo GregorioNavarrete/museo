@@ -12,6 +12,7 @@ body {
     text-decoration: none;
     color: inherit;
     animation: fadeIn 1s ease forwards;
+    
   }
 
   /* ✅ Estilos ajustados para ocupar más espacio en pantallas 1080x1920 */
