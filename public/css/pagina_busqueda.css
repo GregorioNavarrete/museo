@@ -818,7 +818,7 @@ input.input-header {
 
 
 /* --- RESPONSIVE PARA SMARTPHONE CHICO (max-width: 400px) --- */
-@media screen and (max-width: 400px) and (max-height: 800px) {
+@media screen and (max-width: 450px) and (max-height: 800px) {
 
   html, body {
     width: 100vw;

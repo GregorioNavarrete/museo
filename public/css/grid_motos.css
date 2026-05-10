@@ -13,7 +13,7 @@ body {
     color: inherit;
     animation: fadeIn 1s ease forwards;
 
-    
+
   }
 
   /* ✅ Estilos ajustados para ocupar más espacio en pantallas 1080x1920 */
@@ -237,7 +237,7 @@ a {
 /* 🔸 SMARTPHONE PEQUEÑO (360x740) */
 /* (Se aplica a 400px o MENOS y PISA a la anterior) */
 /* ======================================== */
-@media screen and (max-width: 400px) and (max-height: 800px) {
+@media screen and (max-width: 450px) and (max-height: 800px) {
   body {
     padding: 2px;
   }
